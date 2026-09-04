@@ -12,7 +12,7 @@ import {
   shortNames,
   teachingScorecard,
 } from "@/data/tables";
-import { faqs, faqGroups } from "@/data/faqs";
+import { faqs } from "@/data/faqs";
 import { logicMojoModules, visualTwo, priceBands, fiveQuestions, projectLadder } from "@/data/deepdive";
 import {
   alsoConsidered,
@@ -32,6 +32,7 @@ import {
   salesCallRules,
   internalLinks,
   externalLinks,
+  reviewers,
 } from "@/data/extras";
 import { Callout, DataTable, H3, NoteCard, Quote, Section, StatCard, Verify } from "@/components/article/primitives";
 import { Reveal, ScrollProgress } from "@/components/article/Reveal";
@@ -45,7 +46,7 @@ import { Faq } from "@/components/article/Faq";
 
 const TITLE = "Top 10 AI Courses in India to Become an AI Engineer (2026)";
 const DESCRIPTION =
-  "Ranked and reviewed: the 10 best AI courses in India to become an AI Engineer in 2026 — skill stack, 12-month roadmap, projects, fees, salaries and interview prep.";
+  "Compared: the 10 best AI courses in India to become an AI Engineer in 2026 — skills, roadmap, GenAI/RAG/agents depth, projects, fees, interviews and salaries.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -55,10 +56,13 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "article" },
+      { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: Article,
+
 });
 
 const toc: { id: string; label: string }[] = [
@@ -208,11 +212,11 @@ function Article() {
 
           <Reveal delay={80}>
             <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
-              <span>38 min read</span>
+              <span>45 min read</span>
               <span aria-hidden>·</span>
               <span>Last updated: [INSERT DATE]</span>
               <span aria-hidden>·</span>
-              <span>10 courses · 6 comparison tables · 34 FAQs</span>
+              <span>10 courses · 8 comparison tables · 35 FAQs</span>
             </div>
             <p className="mt-3 text-sm text-muted-foreground">
               This guide is published by LogicMojo; the ranking methodology and scoring criteria are
