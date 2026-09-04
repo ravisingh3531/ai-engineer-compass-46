@@ -1,6 +1,7 @@
 import type { Course } from "@/data/courses";
 import { cn } from "@/lib/utils";
 import { H3, Rating } from "./primitives";
+import { Reveal } from "./Reveal";
 
 const pillars: [keyof Course["scores"], string][] = [
   ["curriculum", "Curriculum (25%)"],
@@ -14,18 +15,21 @@ const pillars: [keyof Course["scores"], string][] = [
 export function CourseReview({ course }: { course: Course }) {
   const top = course.rank === 1;
   return (
-    <article
-      id={`course-${course.rank}`}
+    <Reveal
+      as="article"
       className={cn(
-        "scroll-mt-24 my-10 rounded-lg border bg-card p-5 shadow-editorial sm:p-8",
-        top ? "border-accent shadow-lift" : "border-border",
+        "scroll-mt-24 my-10 rounded-2xl border bg-card p-5 shadow-editorial sm:p-8 lift-hover",
+        top ? "border-accent/60 shadow-lift ring-1 ring-accent/20" : "border-border",
       )}
     >
+      <div id={`course-${course.rank}`} className="scroll-mt-24" />
       <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
         <span
           className={cn(
-            "rounded-md px-3 py-1 font-display text-xl",
-            top ? "bg-accent text-accent-foreground" : "bg-ink text-ink-foreground",
+            "rounded-xl px-3 py-1 font-display text-xl",
+            top
+              ? "bg-gradient-to-br from-accent to-primary text-primary-foreground shadow-glow"
+              : "bg-gradient-to-br from-ink to-primary text-ink-foreground",
           )}
         >
           #{course.rank}
@@ -36,7 +40,13 @@ export function CourseReview({ course }: { course: Course }) {
       </div>
       <p className="mt-2 text-muted-foreground">{course.tagline}</p>
 
-      <dl className="mt-5 grid grid-cols-2 gap-4 rounded-md bg-surface p-4 text-sm sm:grid-cols-4">
+      {top ? (
+        <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-highlight px-3 py-1 text-xs font-semibold uppercase tracking-wider text-highlight-foreground ring-1 ring-accent/30">
+          <span className="h-1.5 w-1.5 rounded-full bg-accent" /> Top pick for AI Engineer roles
+        </p>
+      ) : null}
+
+      <dl className="mt-5 grid grid-cols-2 gap-4 rounded-xl border border-border bg-gradient-to-br from-secondary to-card p-4 text-sm sm:grid-cols-4">
         {[
           ["Format", course.format],
           ["Fees", course.fee],
@@ -69,16 +79,16 @@ export function CourseReview({ course }: { course: Course }) {
         <p>{course.fees}</p>
 
         <div className="mt-6 grid gap-5 sm:grid-cols-2">
-          <div className="rounded-md border border-border bg-surface p-4">
-            <p className="eyebrow mb-2">Strengths</p>
+          <div className="rounded-xl border border-positive/30 bg-surface p-4">
+            <p className="eyebrow mb-2 text-positive">Strengths</p>
             <ul className="text-sm">
               {course.strengths.map((s) => (
                 <li key={s}>{s}</li>
               ))}
             </ul>
           </div>
-          <div className="rounded-md border border-border bg-surface p-4">
-            <p className="eyebrow mb-2">{course.limitations.length ? "Limitations" : "Fit guidance"}</p>
+          <div className="rounded-xl border border-caution/30 bg-surface p-4">
+            <p className="eyebrow mb-2 text-caution">{course.limitations.length ? "Limitations" : "Fit guidance"}</p>
             <ul className="text-sm">
               {(course.limitations.length ? course.limitations : [course.suits]).map((s) => (
                 <li key={s}>{s}</li>
@@ -102,6 +112,12 @@ export function CourseReview({ course }: { course: Course }) {
           <div key={key}>
             <p className="eyebrow text-[0.62rem]">{label}</p>
             <p className="mt-1 font-semibold">{course.scores[key].toFixed(1)}</p>
+            <span className="mt-1 block h-1 w-full overflow-hidden rounded-full bg-muted">
+              <span
+                className="block h-full rounded-full bg-gradient-to-r from-primary to-accent transition-[width] duration-700"
+                style={{ width: `${course.scores[key] * 10}%` }}
+              />
+            </span>
           </div>
         ))}
         <div className="col-span-2 sm:col-span-1">
@@ -111,6 +127,6 @@ export function CourseReview({ course }: { course: Course }) {
           </p>
         </div>
       </div>
-    </article>
+    </Reveal>
   );
 }
