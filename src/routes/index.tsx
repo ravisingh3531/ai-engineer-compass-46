@@ -13,7 +13,8 @@ import {
   teachingScorecard,
 } from "@/data/tables";
 import { faqs } from "@/data/faqs";
-import { Callout, DataTable, H3, Quote, Section } from "@/components/article/primitives";
+import { Callout, DataTable, H3, Quote, Section, StatCard } from "@/components/article/primitives";
+import { Reveal, ScrollProgress } from "@/components/article/Reveal";
 import { CourseReview } from "@/components/article/CourseReview";
 import { SkillChecklist } from "@/components/article/SkillChecklist";
 import { CourseFinderQuiz } from "@/components/article/CourseFinderQuiz";
