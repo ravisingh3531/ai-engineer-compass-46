@@ -786,6 +786,153 @@ function Article() {
           <CourseReview key={c.rank} course={c} />
         ))}
 
+        {/* BEGINNER MATRIX */}
+        <Section
+          id="beginner-matrix"
+          eyebrow="Section 5b"
+          title="Beginner Scorecard — All 10 Courses Across 22 AI Engineering Dimensions"
+        >
+          <p>
+            The reviews above judge each program on six weighted pillars. This scorecard answers a
+            narrower question, the one that matters if you are starting from zero:{" "}
+            <strong>
+              does this course teach every skill an entry-level AI Engineer in India is expected to
+              have in 2026 — and does it start where a beginner actually is?
+            </strong>
+          </p>
+          <p>
+            Twenty-two dimensions, from Python and mathematics through classical ML, deep learning,
+            NLP, computer vision, GenAI, LLMs, RAG, LangChain, agents and fine-tuning, out to
+            deployment, MLOps, mentorship, interview preparation, placement support, hiring partners
+            and published outcomes. Two of those rows — hiring partners and verified outcomes — are
+            where nearly every provider in Indian EdTech gets vague, so read them slowly.
+          </p>
+          <Callout label="How to read the ratings" tone="muted">
+            <strong>Strong</strong> = taught in depth with hands-on work. <strong>Good</strong> =
+            covered properly but not to production depth. <strong>Basic</strong> = introduced.{" "}
+            <strong>Min.</strong> = a lecture or a demo. <strong>—</strong> = not covered.{" "}
+            <strong>Verify</strong> = the official page does not state it clearly enough to rate.
+            These are editorial judgements from published syllabi on [INSERT: review date], not
+            vendor-supplied data.
+          </Callout>
+        </Section>
+        <BeginnerMatrix />
+
+        {/* MY EXPERIENCE-BASED SOLUTION */}
+        <Section
+          id="experience-solution"
+          eyebrow="Section 5c"
+          title="My Experience-Based Solution — What I Recommend to Beginners"
+        >
+          <p>
+            People write to me with a version of the same message: <em>I am a beginner, I have a
+            job or a final semester, I have some money and limited hours, and I want to be an AI
+            Engineer — tell me what to do.</em> After mentoring learners through this transition
+            and reading every syllabus on this page line by line, my answer for that specific
+            person is consistent.
+          </p>
+          <Callout label="My recommendation for beginners" tone="accent">
+            For an Indian beginner who wants to become an AI Engineer and needs job support along
+            the way, the <strong>LogicMojo AI &amp; Machine Learning Course</strong> is the best
+            starting point on this list. It begins at Python rather than assuming it, teaches
+            foundations before GenAI, keeps a live IST cohort rhythm with human code review, and
+            runs placement preparation alongside the syllabus instead of bolting it on at the end.
+            This is an editorial recommendation, clearly labelled as such — not a guarantee of a job
+            or a salary.
+          </Callout>
+
+          <H3 id="proof">Evidence, separated from opinion</H3>
+          <p>
+            Below, each supporting point is labelled. <strong>Verifiable</strong> means you can
+            confirm it yourself on a public page in under a minute. <strong>Opinion</strong> means
+            it is my judgement. <strong>Unverified</strong> means nobody should be asserting it —
+            including me.
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            {logicMojoProof.map((p) => (
+              <div
+                key={p.claim}
+                className="lift-hover rounded-2xl border border-border bg-card p-5 shadow-editorial"
+              >
+                <span
+                  className={
+                    "inline-flex rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-wider ring-1 " +
+                    (p.status === "Verifiable"
+                      ? "bg-accent/15 text-accent ring-accent/30"
+                      : p.status === "Opinion"
+                        ? "bg-primary/10 text-primary ring-primary/20"
+                        : "bg-secondary text-muted-foreground ring-border")
+                  }
+                >
+                  {p.status}
+                </span>
+                <p className="mt-3 font-semibold">{p.claim}</p>
+                <p className="mt-2 text-sm text-muted-foreground">{p.detail}</p>
+                {p.source ? (
+                  <a
+                    className="mt-3 inline-block text-sm font-semibold text-accent"
+                    href={p.source.href}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Source: {p.source.label} →
+                  </a>
+                ) : null}
+              </div>
+            ))}
+          </div>
+
+          <H3 id="proof-check">The three checks I ask every beginner to run before paying</H3>
+          <ol>
+            <li>
+              Open{" "}
+              <a href="https://logicmojo.com/success-story" target="_blank" rel="noopener">
+                logicmojo.com/success-story
+              </a>{" "}
+              and read three stories from learners whose background resembles yours. Search those
+              names on LinkedIn. Testimonials that survive that check are worth more than any
+              advertised percentage.
+            </li>
+            <li>
+              Ask to observe one live class in the current batch, and ask who teaches it. Beginners
+              are the group most damaged by a mismatch between the marketed instructor and the
+              actual one.
+            </li>
+            <li>
+              Ask for the job-assistance deliverables in writing: how many mock interviews, who
+              conducts them, whether your portfolio is reviewed, and how long support continues
+              after the course ends. <Verify>VERIFY: current fee, EMI terms, batch dates and job-assistance scope on the official page</Verify>
+            </li>
+          </ol>
+
+          <Callout label="Commercial disclosure" tone="muted">
+            LogicMojo publishes this article. That is exactly why every claim above is labelled and
+            sourced, why no placement percentage or salary figure is quoted for any provider, and
+            why six competing programs are recommended over LogicMojo elsewhere on this page when
+            they fit the reader better. Judge the reasoning, not the ranking.
+          </Callout>
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a
+              className="rounded-xl bg-gradient-to-r from-primary to-accent px-5 py-3 text-sm font-semibold text-primary-foreground no-underline shadow-glow"
+              href="https://logicmojo.com/artificial-intelligence-machine-learning-course"
+              target="_blank"
+              rel="noopener"
+            >
+              Explore the LogicMojo AI &amp; ML Course →
+            </a>
+            <a
+              className="rounded-xl border border-accent/40 px-5 py-3 text-sm font-semibold text-accent no-underline"
+              href="https://logicmojo.com/success-story"
+              target="_blank"
+              rel="noopener"
+            >
+              Read learner success stories
+            </a>
+          </div>
+        </Section>
+
+
         {/* DEEP DIVE */}
         <Section
           id="logicmojo-deep-dive"
