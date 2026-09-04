@@ -1,168 +1,282 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { Reveal } from "./Reveal";
 
-type Q = { id: string; question: string; options: { label: string; value: string }[] };
+type Answer = string;
 
-const questions: Q[] = [
+type Question = {
+  id: string;
+  q: string;
+  options: { value: Answer; label: string }[];
+};
+
+const questions: Question[] = [
   {
     id: "background",
-    question: "Where are you starting from?",
+    q: "1. What is your current background?",
     options: [
-      { label: "Working software developer (1–8 yrs)", value: "dev" },
-      { label: "Data analyst, BI or data engineer", value: "data" },
-      { label: "QA, DevOps, SRE or cloud engineer", value: "infra" },
-      { label: "Student or fresher", value: "student" },
-      { label: "Non-tech career switcher", value: "switcher" },
+      { value: "nontech", label: "Non-technical (no coding yet)" },
+      { value: "somecode", label: "Some coding — scripts, college projects" },
+      { value: "dev", label: "Software developer" },
+      { value: "analyst", label: "Data analyst or data engineer" },
+      { value: "devops", label: "DevOps / cloud engineer" },
+      { value: "student", label: "Student / final year" },
+    ],
+  },
+  {
+    id: "level",
+    q: "2. Where are you on the capability ladder right now?",
+    options: [
+      { value: "0", label: "Level 0–1 — AI literate, cannot build yet" },
+      { value: "2", label: "Level 2 — can train a model in a notebook" },
+      { value: "3", label: "Level 3 — can build an LLM app end to end" },
+      { value: "4", label: "Level 4 — already shipping AI in production" },
+    ],
+  },
+  {
+    id: "goal",
+    q: "3. What is the goal?",
+    options: [
+      { value: "switch", label: "Switch into an AI Engineer role" },
+      { value: "add", label: "Add AI to my current role" },
+      { value: "credential", label: "A credential for promotion or an HR filter" },
+      { value: "test", label: "Test the waters before committing" },
     ],
   },
   {
     id: "budget",
-    question: "What can you realistically spend?",
+    q: "4. What is your realistic budget?",
     options: [
-      { label: "₹0 — free only for now", value: "free" },
-      { label: "Under ₹50,000", value: "low" },
-      { label: "₹50,000 – ₹1.5L (EMI fine)", value: "mid" },
-      { label: "Above ₹1.5L", value: "high" },
+      { value: "free", label: "Free only" },
+      { value: "u15", label: "Under ₹15,000" },
+      { value: "15-60", label: "₹15,000 – ₹60,000" },
+      { value: "60-150", label: "₹60,000 – ₹1.5 lakh" },
+      { value: "150+", label: "₹1.5 lakh and above" },
     ],
   },
   {
     id: "hours",
-    question: "Hours per week you can genuinely protect?",
+    q: "5. Hours you can protect every week?",
     options: [
-      { label: "Under 6", value: "few" },
-      { label: "8–15", value: "normal" },
-      { label: "20+ (between jobs or studying full-time)", value: "many" },
+      { value: "u6", label: "Under 6 hours" },
+      { value: "6-10", label: "6 – 10 hours" },
+      { value: "10-15", label: "10 – 15 hours" },
+      { value: "15+", label: "15+ hours" },
     ],
   },
   {
-    id: "need",
-    question: "What matters most in the outcome?",
+    id: "style",
+    q: "6. Which learning style actually works for you?",
     options: [
-      { label: "Capability — I want to build and deploy real AI systems", value: "capability" },
-      { label: "A university/brand credential for HR, visa or promotion", value: "credential" },
-      { label: "Placement network into product companies", value: "placement" },
-      { label: "Lowest possible cost to get started", value: "cheap" },
+      { value: "live", label: "Live cohort with fixed timings" },
+      { value: "weekend", label: "Weekend mentor sessions" },
+      { value: "self", label: "Fully self-paced" },
+      { value: "mixed", label: "Mixed — recordings plus some live" },
     ],
   },
   {
-    id: "structure",
-    question: "How honest are you about self-discipline?",
+    id: "priority",
+    q: "7. If you could only have one, which matters most?",
     options: [
-      { label: "I have abandoned a self-paced course before", value: "needs-structure" },
-      { label: "I finish what I start, alone", value: "self-driven" },
+      { value: "skills", label: "Deep AI Engineer skills" },
+      { value: "placement", label: "Placement infrastructure and referrals" },
+      { value: "credential", label: "A university credential" },
+      { value: "cost", label: "Lowest possible cost" },
+    ],
+  },
+  {
+    id: "timeline",
+    q: "8. What is your timeline?",
+    options: [
+      { value: "3-6", label: "3 – 6 months" },
+      { value: "6-12", label: "6 – 12 months" },
+      { value: "12-18", label: "12 – 18 months" },
+      { value: "none", label: "No fixed timeline" },
     ],
   },
 ];
 
-function recommend(a: Record<string, string>) {
-  const primary = { name: "", why: "" };
-  const alt: string[] = [];
+type Result = { primary: string; reason: string; secondary?: string };
 
-  if (a['need'] === "credential") {
-    primary.name = "upGrad (IIIT-Bangalore) or Great Learning (UT Austin)";
-    primary.why =
-      "You need an institution's name on the certificate. Take it — then close the GenAI gap deliberately, because production RAG, agents and deployment are the thin parts of both curricula. Pair it with LogicMojo's GenAI and MLOps depth or self-directed work on those layers.";
-    alt.push("LogicMojo — for the engineering depth the credential programs skip");
-  } else if (a['need'] === "placement" && a['budget'] === "high") {
-    primary.name = "Scaler — Data Science, ML & AI Program";
-    primary.why =
-      "You are buying the hiring desk and the product-company mentor network, and you can carry the fee. Use the referrals aggressively; that is the whole value proposition.";
-    alt.push("LogicMojo — same or better curriculum depth at a fraction of the cost");
-  } else if (a['budget'] === "free") {
-    primary.name = "DeepLearning.AI + Hugging Face + Kaggle Learn";
-    primary.why =
-      "Spend nothing for eight weeks and prove to yourself that you finish. If you reach the end of the ML specialisation, you have earned the right to invest in a structured GenAI-to-deployment cohort.";
-    alt.push("IBM AI Engineering (Coursera) — applied labs at subscription cost");
-    alt.push("LogicMojo — when you are ready to pay for sequence, review and deployment");
-  } else if (a['budget'] === "low" && (a['background'] === "student" || a['background'] === "switcher")) {
-    primary.name = "GUVI or PW Skills, then a full-sequence program";
-    primary.why =
-      "At your budget, structure beats prestige. Build Level 2 foundations cheaply, then invest once in the GenAI-to-production layer that actually gets AI Engineer offers.";
-    alt.push("LogicMojo — the follow-on step to reach Level 4");
-  } else {
-    primary.name = "LogicMojo — AI & Machine Learning Course";
-    primary.why =
-      a['background'] === "dev" || a['background'] === "infra"
-        ? "You already code, so the value is the unbroken run from ML foundations through production RAG, fine-tuning, agents and MLOps — with live IST sessions that fit around a job and a human reviewing your code."
-        : "You need one sequence rather than ten tabs: onboarding for Python and maths, then ML, deep learning, the full GenAI stack and deployment, with live IST mentorship and project defence practice.";
-    if (a['structure'] === "needs-structure")
-      alt.push("Cohort accountability is the deciding factor for you — avoid purely self-paced tracks");
-    if (a['hours'] === "few")
-      alt.push("Under 6 hrs/week: stretch the timeline to 15–18 months rather than picking a shorter course");
-    alt.push("Great Learning — if weekends are the only time you have");
+function decide(a: Record<string, Answer>): Result {
+  const { budget, hours, style, priority, background, goal } = a;
+  const deepHours = hours === "10-15" || hours === "15+";
+  const liveOrMixed = style === "live" || style === "mixed" || style === "weekend";
+
+  if (budget === "free") {
+    return {
+      primary: "DeepLearning.AI + Hugging Face + Kaggle",
+      reason:
+        "At ₹0 the content is not the constraint — sequence and accountability are. Audit the ML and Deep Learning specialisations, then the Hugging Face NLP and Agents courses, and keep a Kaggle habit for applied practice.",
+      secondary: "Revisit a paid cohort only after you have finished eight weeks unaided.",
+    };
   }
-  return { primary, alt };
+  if (style === "self" && (background === "dev" || background === "devops" || background === "analyst")) {
+    return {
+      primary: "IBM AI Engineering (Coursera)",
+      reason:
+        "You already code and you want no fixed timings. IBM's applied, implementation-first track is the strongest sub-₹5,000 option for someone who can self-direct.",
+      secondary: "Add DeepLearning.AI GenAI short courses for the RAG and agents layer.",
+    };
+  }
+  if (hours === "u6" && goal === "test") {
+    return {
+      primary: "DeepLearning.AI short courses or a cloud vendor track",
+      reason:
+        "Under six hours a week, a long program will defeat you. Build AI literacy and a small project first, then re-plan when you can protect ten hours.",
+    };
+  }
+  if (budget === "u15") {
+    return {
+      primary: "PW Skills or GUVI",
+      reason:
+        "The lowest-risk first investment. Expect entry-level ML with introductory GenAI, and plan a second, deeper program once you know you finish what you start.",
+      secondary: "GUVI if you prefer Tamil, Hindi, Telugu or Kannada instruction.",
+    };
+  }
+  if (priority === "credential" || (goal === "credential" && budget === "150+")) {
+    return {
+      primary: "upGrad (IIIT-Bangalore) or Great Learning (UT Austin)",
+      reason:
+        "You need an institution's name on the certificate for an HR filter, a visa or a promotion case. Budget deliberate extra time afterwards to close the production RAG, agents and MLOps gap.",
+      secondary: "LogicMojo as a follow-on for the GenAI-to-production layers.",
+    };
+  }
+  if (priority === "placement" && budget === "150+" && hours === "15+") {
+    return {
+      primary: "Scaler",
+      reason:
+        "You are buying the hiring desk, the mentor pool and the alumni network — and you have the hours and budget to use them. That infrastructure is real and it is the strongest on this list.",
+      secondary: "LogicMojo as a secondary option if the fee or the 15-month commitment does not clear.",
+    };
+  }
+  if (priority === "cost") {
+    return {
+      primary: "PW Skills, then a specialist program",
+      reason:
+        "Optimise the first ₹10,000 for discovering whether you finish. Once you know that, spend on depth rather than on the cheapest available option.",
+    };
+  }
+  if (priority === "skills" && deepHours && liveOrMixed && (budget === "15-60" || budget === "60-150")) {
+    return {
+      primary: "LogicMojo — AI & Machine Learning Course",
+      reason:
+        "You want AI Engineer capability, you can hold 10+ hours a week, and live or mixed delivery suits you. That is exactly the profile the full seven-layer sequence — foundations through production RAG, agents and deployment — is built for.",
+      secondary: "Scaler if placement infrastructure later matters more than curriculum depth.",
+    };
+  }
+  if (budget === "150+" && priority === "skills") {
+    return {
+      primary: "LogicMojo, with Scaler as the alternative",
+      reason:
+        "Your budget clears every option, so choose on what you are optimising for. If the answer is capability, the specialist curriculum covers more of the 2026 stack; if it is the hiring network, Scaler wins.",
+      secondary: "Simplilearn if your employer is funding a corporate-recognised credential.",
+    };
+  }
+  return {
+    primary: "LogicMojo — AI & Machine Learning Course",
+    reason:
+      "Your answers point to a learner who needs a complete sequence with live support rather than more content. Confirm the current fee, batch timings and refund window in writing before you enrol.",
+    secondary: "Great Learning if weekend-only mentor sessions fit your week better.",
+  };
 }
 
 export function CourseFinderQuiz() {
-  const [answers, setAnswers] = useState<Record<string, string>>({});
-  const [submitted, setSubmitted] = useState(false);
-  const complete = questions.every((q) => answers[q.id]);
-  const result = submitted ? recommend(answers) : null;
+  const [step, setStep] = useState(0);
+  const [answers, setAnswers] = useState<Record<string, Answer>>({});
+  const done = step >= questions.length;
+  const current = questions[step];
+  const progress = Math.round((Math.min(step, questions.length) / questions.length) * 100);
+
+  function choose(value: Answer) {
+    if (!current) return;
+    setAnswers((prev) => ({ ...prev, [current.id]: value }));
+    setStep((s) => s + 1);
+  }
+
+  const result = done ? decide(answers) : null;
 
   return (
-    <div className="my-8 rounded-lg border border-border bg-card p-5 shadow-editorial sm:p-7">
-      <p className="eyebrow">Interactive</p>
-      <h4 className="mt-1 text-2xl">AI Course Finder Quiz</h4>
-      <p className="mt-1 text-sm text-muted-foreground">Five questions. No email required.</p>
+    <Reveal className="my-8">
+      <div className="glass-card relative overflow-hidden p-6">
+        <div aria-hidden className="pointer-events-none absolute inset-0 grid-lines opacity-[0.07]" />
+        <div className="relative">
+          <div className="flex items-center justify-between gap-3">
+            <p className="eyebrow">AI Course Finder</p>
+            <p className="font-mono text-xs text-muted-foreground">
+              {done ? "Complete" : `Question ${step + 1} / ${questions.length}`}
+            </p>
+          </div>
+          <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-secondary">
+            <div
+              className="h-full rounded-full bg-gradient-to-r from-primary to-accent transition-all duration-500"
+              style={{ width: `${done ? 100 : progress}%` }}
+            />
+          </div>
 
-      <div className="mt-6 space-y-6">
-        {questions.map((q, i) => (
-          <fieldset key={q.id}>
-            <legend className="mb-2 font-semibold">
-              {i + 1}. {q.question}
-            </legend>
-            <div className="flex flex-wrap gap-2">
-              {q.options.map((o) => {
-                const active = answers[q.id] === o.value;
-                return (
+          {!done && current ? (
+            <div className="mt-6">
+              <p className="font-display text-2xl leading-snug text-primary">{current.q}</p>
+              <div className="mt-4 grid gap-2.5 sm:grid-cols-2">
+                {current.options.map((o) => (
                   <button
                     key={o.value}
                     type="button"
-                    onClick={() => {
-                      setAnswers((a) => ({ ...a, [q.id]: o.value }));
-                      setSubmitted(false);
-                    }}
-                    className={cn(
-                      "rounded-full border px-3.5 py-1.5 text-sm transition-colors",
-                      active
-                        ? "border-accent bg-accent text-accent-foreground"
-                        : "border-border bg-surface text-surface-foreground hover:border-accent",
-                    )}
+                    onClick={() => choose(o.value)}
+                    className="lift-hover rounded-xl border border-border bg-card px-4 py-3 text-left text-sm font-medium text-foreground transition-colors hover:border-accent/60 hover:bg-highlight"
                   >
                     {o.label}
                   </button>
-                );
-              })}
+                ))}
+              </div>
+              {step > 0 ? (
+                <button
+                  type="button"
+                  onClick={() => setStep((s) => s - 1)}
+                  className="mt-4 text-sm font-semibold text-accent underline underline-offset-4"
+                >
+                  ← Back
+                </button>
+              ) : null}
             </div>
-          </fieldset>
-        ))}
-      </div>
+          ) : null}
 
-      <Button
-        className="mt-6"
-        disabled={!complete}
-        onClick={() => setSubmitted(true)}
-        variant="default"
-      >
-        {complete ? "Show my recommendation" : "Answer all five to continue"}
-      </Button>
-
-      {result ? (
-        <div className="mt-6 rounded-md bg-ink p-5 text-ink-foreground">
-          <p className="eyebrow opacity-80">Your best-fit pick</p>
-          <p className="mt-1 font-display text-2xl">{result.primary.name}</p>
-          <p className="mt-2 text-sm opacity-90">{result.primary.why}</p>
-          {result.alt.length ? (
-            <ul className="mt-4 space-y-1 text-sm opacity-90">
-              {result.alt.map((a) => (
-                <li key={a}>— {a}</li>
-              ))}
-            </ul>
+          {result ? (
+            <div className="mt-6 rounded-2xl border border-accent/40 bg-gradient-to-br from-secondary to-card p-5 shadow-glow">
+              <p className="eyebrow">Your best-fit match</p>
+              <p className="mt-1 font-display text-3xl gradient-text">{result.primary}</p>
+              <p className="prose-body mt-2 text-[0.98rem]">{result.reason}</p>
+              {result.secondary ? (
+                <p className="mt-3 rounded-xl bg-highlight px-4 py-3 text-sm text-highlight-foreground">
+                  <strong>Also consider:</strong> {result.secondary}
+                </p>
+              ) : null}
+              <div className="mt-5 flex flex-wrap gap-3">
+                <a
+                  href="https://logicmojo.com/artificial-intelligence-machine-learning-course"
+                  className="rounded-xl bg-gradient-to-r from-primary to-accent px-5 py-2.5 text-sm font-semibold text-primary-foreground no-underline shadow-editorial transition-transform duration-300 hover:-translate-y-0.5"
+                >
+                  Explore the LogicMojo AI &amp; ML course →
+                </a>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setAnswers({});
+                    setStep(0);
+                  }}
+                  className="lift-hover rounded-xl border border-accent/35 bg-card px-5 py-2.5 text-sm font-semibold text-primary"
+                >
+                  Restart the quiz
+                </button>
+              </div>
+              <p className="mt-4 text-xs text-muted-foreground">
+                This recommender applies the stated output logic to your answers. It captures no
+                personal data, and it cannot promise an outcome — verify fees, batch timings and
+                inclusions on each provider&apos;s official page before enrolling.
+              </p>
+            </div>
           ) : null}
         </div>
-      ) : null}
-    </div>
+      </div>
+    </Reveal>
   );
 }
