@@ -59,23 +59,23 @@ function recommend(a: Record<string, string>) {
   const primary = { name: "", why: "" };
   const alt: string[] = [];
 
-  if (a.need === "credential") {
+  if (a['need'] === "credential") {
     primary.name = "upGrad (IIIT-Bangalore) or Great Learning (UT Austin)";
     primary.why =
       "You need an institution's name on the certificate. Take it — then close the GenAI gap deliberately, because production RAG, agents and deployment are the thin parts of both curricula. Pair it with LogicMojo's GenAI and MLOps depth or self-directed work on those layers.";
     alt.push("LogicMojo — for the engineering depth the credential programs skip");
-  } else if (a.need === "placement" && a.budget === "high") {
+  } else if (a['need'] === "placement" && a['budget'] === "high") {
     primary.name = "Scaler — Data Science, ML & AI Program";
     primary.why =
       "You are buying the hiring desk and the product-company mentor network, and you can carry the fee. Use the referrals aggressively; that is the whole value proposition.";
     alt.push("LogicMojo — same or better curriculum depth at a fraction of the cost");
-  } else if (a.budget === "free") {
+  } else if (a['budget'] === "free") {
     primary.name = "DeepLearning.AI + Hugging Face + Kaggle Learn";
     primary.why =
       "Spend nothing for eight weeks and prove to yourself that you finish. If you reach the end of the ML specialisation, you have earned the right to invest in a structured GenAI-to-deployment cohort.";
     alt.push("IBM AI Engineering (Coursera) — applied labs at subscription cost");
     alt.push("LogicMojo — when you are ready to pay for sequence, review and deployment");
-  } else if (a.budget === "low" && (a.background === "student" || a.background === "switcher")) {
+  } else if (a['budget'] === "low" && (a['background'] === "student" || a['background'] === "switcher")) {
     primary.name = "GUVI or PW Skills, then a full-sequence program";
     primary.why =
       "At your budget, structure beats prestige. Build Level 2 foundations cheaply, then invest once in the GenAI-to-production layer that actually gets AI Engineer offers.";
@@ -83,12 +83,12 @@ function recommend(a: Record<string, string>) {
   } else {
     primary.name = "LogicMojo — AI & Machine Learning Course";
     primary.why =
-      a.background === "dev" || a.background === "infra"
+      a['background'] === "dev" || a['background'] === "infra"
         ? "You already code, so the value is the unbroken run from ML foundations through production RAG, fine-tuning, agents and MLOps — with live IST sessions that fit around a job and a human reviewing your code."
         : "You need one sequence rather than ten tabs: onboarding for Python and maths, then ML, deep learning, the full GenAI stack and deployment, with live IST mentorship and project defence practice.";
-    if (a.structure === "needs-structure")
+    if (a['structure'] === "needs-structure")
       alt.push("Cohort accountability is the deciding factor for you — avoid purely self-paced tracks");
-    if (a.hours === "few")
+    if (a['hours'] === "few")
       alt.push("Under 6 hrs/week: stretch the timeline to 15–18 months rather than picking a shorter course");
     alt.push("Great Learning — if weekends are the only time you have");
   }
