@@ -13,7 +13,10 @@ import {
   teachingScorecard,
 } from "@/data/tables";
 import { faqs } from "@/data/faqs";
+import { chooseSteps, beyondMarketing, logicMojoProof } from "@/data/beginner";
+import { BeginnerMatrix } from "@/components/article/BeginnerMatrix";
 import { logicMojoModules, visualTwo, priceBands, fiveQuestions, projectLadder } from "@/data/deepdive";
+
 import {
   alsoConsidered,
   archetypes,
