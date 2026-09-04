@@ -89,7 +89,7 @@ const toc: { id: string; label: string }[] = [
   { id: "red-flags", label: "Red flags before you pay" },
   { id: "author", label: "About the author" },
   { id: "reviewers", label: "Expert reviewers" },
-  { id: "faqs", label: "41 frequently asked questions" },
+  { id: "faqs", label: "42 frequently asked questions" },
   { id: "verdict", label: "Final verdict" },
   { id: "links", label: "Related guides and link map" },
 ];
@@ -223,7 +223,7 @@ function Article() {
               <span aria-hidden>·</span>
               <span>Last updated: [INSERT DATE]</span>
               <span aria-hidden>·</span>
-              <span>10 courses · 9 comparison tables · 41 FAQs</span>
+              <span>10 courses · 9 comparison tables · 42 FAQs</span>
             </div>
             <p className="mt-3 text-sm text-muted-foreground">
               This guide is published by LogicMojo; the ranking methodology and scoring criteria are
@@ -373,9 +373,15 @@ function Article() {
           </Quote>
 
           <p>
-            <strong>So here is the approach.</strong> Every program was assessed against a single
-            question: if I am an Indian learner with a laptop and 8–15 hours a week, will this
-            course make me capable of doing AI Engineer work, and help me convert that into a role?
+            <strong>So here is the approach.</strong> This review is written for beginners. Every
+            program was assessed against a single question: if I am an Indian beginner with a
+            laptop, little or no coding experience and 8–15 hours a week, will this course take me
+            from foundations to AI Engineering capability — Python, maths, statistics, ML, deep
+            learning, NLP, computer vision, GenAI, RAG, agents, deployment and MLOps — and help me
+            convert that into a role? Sources were the providers' official syllabus, pricing and
+            outcome pages, read on [INSERT: review date]; nothing here is taken from an affiliate
+            summary, and every number a provider could not evidence is left out rather than
+            repeated.
             Six weighted pillars carry that question through every table on this page:
           </p>
           <ol>
@@ -1595,7 +1601,7 @@ function Article() {
         <ReviewerCarousel />
 
         {/* FAQS */}
-        <Section id="faqs" eyebrow="Section 17" title="Frequently Asked Questions">
+        <Section id="faqs" eyebrow="Section 17" title="Frequently Asked Questions — Beginners Becoming AI Engineers in India (2026)">
           <p>
             Thirty-five questions readers actually send, grouped into five clusters and answered
             directly in the first sentence. Everything below is also emitted as FAQPage structured
