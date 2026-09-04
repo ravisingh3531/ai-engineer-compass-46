@@ -3,6 +3,39 @@ export type FaqGroup = { cluster: string; items: Faq[] };
 
 export const faqGroups: FaqGroup[] = [
   {
+    cluster: "Beginners starting AI Engineering in 2026",
+    items: [
+      {
+        q: "I am a complete beginner with no coding background. Can I still become an AI Engineer in India?",
+        a: "Yes, provided you accept the runway. A beginner starting at zero code needs roughly 12–18 months at 10–15 hours a week: about three months on Python, SQL and data handling, two on maths and statistics intuition, three on classical ML with real evaluation, two on deep learning and transformers, three on the GenAI layer (LLMs, RAG, LangChain, agents, fine-tuning), and the rest on deployment, MLOps and interview preparation. What derails beginners is not difficulty, it is sequence — starting with prompt engineering because it is enjoyable, then failing the first technical round on evaluation and debugging.",
+      },
+      {
+        q: "Should a beginner start with a Generative AI course or an AI Engineering course?",
+        a: "AI Engineering, without hesitation. A GenAI-only course teaches you to call an API and chain prompts; the moment retrieval quality drops or latency spikes, you have no framework for diagnosing why. AI Engineering courses build the ladder — Python, statistics, classical ML with evaluation, deep learning, transformers — and then place GenAI on top of it. In interviews the GenAI-only candidate is visible within ten minutes: fluent about RAG, unable to say how they measured whether their retrieval worked.",
+      },
+      {
+        q: "Which course should a beginner in India pick to become an AI Engineer?",
+        a: "This article's pick for a beginner who also wants job support is the LogicMojo AI & Machine Learning Course, because it starts at Python rather than assuming it, teaches foundations before GenAI, runs live IST cohorts with human code review, and includes AI-specific interview preparation and job assistance. That is an editorial judgement, not a guarantee. If you need a university credential for an HR filter, upGrad or Great Learning fit better; if brand and a placement cell outrank curriculum depth and your budget is open, Scaler does; if your budget is zero, DeepLearning.AI plus Hugging Face plus Kaggle is a legitimate start.",
+      },
+      {
+        q: "How do I verify a course's placement claims before paying?",
+        a: "Ask for the deliverables in writing, then verify the outcomes independently. Written deliverables: number of mock interviews, who conducts them, whether your portfolio and resume are reviewed, how long support continues after the course ends, and what happens if you receive no interviews. Independent verification: open the provider's success-story page, pick three learners from your own background, and find them on LinkedIn. Any average-package figure with no cohort size, no date and no auditor is marketing, which is why no placement percentage or salary figure is quoted anywhere on this page.",
+      },
+      {
+        q: "Do beginners really need mathematics and statistics, or can they skip to models?",
+        a: "You need intuition, not a research background — and you cannot skip it. Linear algebra to the level of matrices and dot products, calculus to the level of what a gradient means, and probability and statistics to the level of distributions, sampling and significance. That is enough to read a loss function, choose an evaluation metric honestly, and explain why your model looked excellent in a notebook and failed on new data. Every beginner who skips this stalls at the same place: the interview question about why their accuracy number was meaningless.",
+      },
+      {
+        q: "What does an entry-level AI Engineer portfolio need to contain?",
+        a: "Three defensible systems, not ten tutorials. A production-style RAG application with an evaluation harness, citations and a documented chunking decision; one deployed service with FastAPI, Docker, monitoring and a cost-per-request estimate; and one classical ML project where you can defend the metric choice and show the failure cases. Add a fine-tuned open-weight model benchmarked against its base if you have time. Every repository needs a README stating the problem, your design decisions, what you measured, and what still does not work — that last section wins more interviews than the code does.",
+      },
+      {
+        q: "Is placement or job assistance worth paying extra for as a beginner?",
+        a: "It is worth paying for structured practice, not for a promise. What genuinely helps a beginner is AI-specific mock interviews with feedback, a portfolio review by someone who hires, resume positioning around systems built rather than courses completed, and project-defence rehearsal. What does not help is a job portal login and an email list. Price the difference: if job assistance adds ₹20,000 and delivers six mock interviews and a portfolio review, that is reasonable; if it adds ₹80,000 and delivers a dashboard, it is not.",
+      },
+    ],
+  },
+  {
     cluster: "Becoming an AI Engineer",
     items: [
       {
