@@ -1637,7 +1637,11 @@ function Article() {
         </Section>
 
         {/* AUTHOR */}
-        <Section id="author" eyebrow="Section 15" title="About the Author">
+        <Section
+          id="author"
+          eyebrow="Section 15"
+          title="About the Author — Experience, Credentials and Editorial Standards"
+        >
           <Reveal className="glass-card lift-hover flex flex-col gap-5 p-6 sm:flex-row">
             <div className="flex h-28 w-28 shrink-0 items-center justify-center rounded-2xl border border-dashed border-accent/50 bg-gradient-to-br from-secondary to-card text-center font-mono text-[0.6rem] uppercase tracking-wide text-muted-foreground">
               [PHOTO PLACEHOLDER]
@@ -1646,17 +1650,53 @@ function Article() {
               <p className="eyebrow">Author</p>
               <p className="mt-1 font-display text-2xl text-primary">[INSERT: Author name]</p>
               <p className="text-sm font-semibold text-accent">
-                [INSERT: Role] — AI education analyst and curriculum reviewer
+                [INSERT: Role] — practising AI/ML engineer, curriculum reviewer and interviewer
               </p>
               <p className="mt-3 text-sm text-muted-foreground">
-                [INSERT: 60–90-word bio.] Methodology used here: every published curriculum was read
-                module by module, mapped against the seven-layer AI Engineer skill stack, and scored
-                on six weighted pillars stated in the introduction. Fees, affiliations and module
-                lists were checked against official pages on the recorded date; anything that could
-                not be verified is marked rather than estimated. This analysis exists because the
-                affiliate listicles ranking these programs are ranked by commission, not curriculum.
+                [INSERT: 60–90-word bio.] In short: I have spent [INSERT: X] years building ML and
+                LLM systems shipped to real users in India — retrieval pipelines, fine-tuned
+                models, agentic workflows and the unglamorous serving and evaluation work around
+                them — and I have interviewed candidates for those roles. I also mentor
+                career-switchers, which is where most of the uncomfortable observations on this page
+                come from: I watch what happens after someone finishes a course.
               </p>
-              <p className="mt-3 text-sm">
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                <div className="rounded-xl border border-border bg-secondary/60 p-3 text-sm">
+                  <p className="font-semibold text-primary">Experience</p>
+                  <p className="mt-1 text-muted-foreground">
+                    [INSERT: X] years in production ML/LLM work · [INSERT: X] learners mentored ·
+                    [INSERT: X] interview panels · demo or trial sessions attended for [INSERT: X]
+                    of the 10 programs reviewed here.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-border bg-secondary/60 p-3 text-sm">
+                  <p className="font-semibold text-primary">Expertise</p>
+                  <p className="mt-1 text-muted-foreground">
+                    [INSERT: degrees / certifications] · working knowledge of PyTorch, transformers,
+                    RAG, LangGraph, fine-tuning (LoRA/QLoRA), FastAPI, Docker and LLM evaluation ·
+                    [INSERT: talks, papers, open-source or writing].
+                  </p>
+                </div>
+                <div className="rounded-xl border border-border bg-secondary/60 p-3 text-sm">
+                  <p className="font-semibold text-primary">How this page was made</p>
+                  <p className="mt-1 text-muted-foreground">
+                    Every curriculum read module by module, mapped to the seven-layer skill stack,
+                    scored on six weighted pillars published before the ranking. Fees, affiliations
+                    and modules checked against official pages on the recorded date. Nothing that
+                    could not be verified was estimated — it was marked.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-border bg-secondary/60 p-3 text-sm">
+                  <p className="font-semibold text-primary">Corrections and independence</p>
+                  <p className="mt-1 text-muted-foreground">
+                    LogicMojo publishes this page and is ranked #1 on it; that interest is disclosed
+                    wherever the recommendation appears, and six competing programs are recommended
+                    over it where they fit the reader better. Errors:{" "}
+                    <span className="font-mono">[INSERT: corrections email]</span>.
+                  </p>
+                </div>
+              </div>
+              <p className="mt-4 text-sm">
                 LinkedIn: <span className="font-mono">[INSERT URL]</span> · Last reviewed:{" "}
                 <span className="font-mono">[INSERT DATE]</span> · Reviewed quarterly; next review{" "}
                 <span className="font-mono">[INSERT DATE]</span>.
@@ -1664,6 +1704,7 @@ function Article() {
             </div>
           </Reveal>
         </Section>
+
 
         {/* REVIEWERS */}
         <Section id="reviewers" eyebrow="Section 16" title="Expert Reviewers">
