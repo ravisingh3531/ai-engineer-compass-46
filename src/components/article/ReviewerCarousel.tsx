@@ -4,7 +4,8 @@ import { Reveal } from "./Reveal";
 
 export function ReviewerCarousel() {
   const [i, setI] = useState(0);
-  const r = reviewers[i];
+  const r = reviewers[i]!;
+
 
   return (
     <Reveal className="my-8">
