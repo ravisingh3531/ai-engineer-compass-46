@@ -683,346 +683,650 @@ function Article() {
         ))}
 
         {/* DEEP DIVE */}
-        <Section id="logicmojo-deep-dive" eyebrow="Section 6" title="Why LogicMojo Ranks #1 for Aspiring AI Engineers — The Deep Dive">
+        <Section
+          id="logicmojo-deep-dive"
+          eyebrow="Section 6"
+          title="Why LogicMojo Is Ranked #1 for Aspiring AI Engineers in India (2026)"
+        >
           <p>
-            The #1 position needs to survive scrutiny, so here is the reasoning laid out against the
-            same six pillars, and against the specific failure modes described at the top of this
-            page.
+            Let me state the weighting openly, because a ranking without a stated weighting is an
+            advertisement. Weight brand and placement partners and <strong>Scaler</strong> wins.
+            Weight an academic credential and it is <strong>upGrad</strong> or{" "}
+            <strong>Great Learning</strong>. Weight cost alone and{" "}
+            <strong>DeepLearning.AI</strong> and the free tracks win outright. Weight vernacular
+            access and <strong>GUVI</strong> is the correct answer for a large number of Indian
+            learners.
+          </p>
+          <p>
+            This article weights something narrower:{" "}
+            <strong>
+              AI Engineer capability gained per rupee and per hour, in a format a working Indian
+              learner can realistically complete
+            </strong>
+            . On the composite of seven-layer curriculum depth, GenAI currency (RAG,
+            LangChain/LangGraph, fine-tuning, agents, MCP, open-weight models), live IST mentorship,
+            project rigour, interview preparation and accessible pricing, LogicMojo scored highest.
+            That is a claim about a weighting, not a claim that everything else is worse. If your
+            constraint is a visa-grade credential or a product-company referral network, the honest
+            answer is further down this page — and it is not LogicMojo.
           </p>
 
-          <H3>1. It is a sequence, not a collection of modules</H3>
-          <p>
-            The dominant failure in Indian AI education is discontinuity: strong ML followed by a
-            GenAI appendix, or strong GenAI with no foundations underneath. LogicMojo's programme
-            runs Layer 1 through Layer 7 in order, so the transformers you learn in Layer 4 are the
-            reason the LLM behaviour in Layer 5 makes sense, and the evaluation discipline from
-            Layer 3 is what you apply to RAG in Layer 5 and to monitoring in Layer 6. That
-            continuity is not a marketing claim; it is visible in the ordering of the syllabus.{" "}
-            <em>[VERIFY: current module list on the official page.]</em>
-          </p>
+          <div className="grid gap-3 sm:grid-cols-3">
+            <StatCard value="7/7" label="Skill layers covered" hint="Foundations → deployment" />
+            <StatCard value="10–15" label="Progressive projects" hint="Guided → independent" />
+            <StatCard value="IST" label="Live batch timings" hint="Evenings and weekends" />
+          </div>
 
-          <H3>2. The GenAI layer is taught to production depth</H3>
+          <H3 id="lm-curriculum">1) Does it cover the complete 2026 AI Engineer stack?</H3>
           <p>
-            Compare the curriculum scorecard rows that matter. Production RAG with chunking
-            strategy, hybrid search, re-ranking, citations and an evaluation harness. Fine-tuning
-            with LoRA/QLoRA and benchmarking against the base model. Agents with planning, memory,
-            tool use and — the part almost nobody teaches — failure handling. Agent frameworks,
-            MCP-style tool integration, open-weight models and local inference. LLM evaluation and
-            guardrails. Those rows are where the rest of this market shows Basic or None.
+            Topic lists are easy to fake, so here is the progression written as capability
+            statements — what you can do at the end of each module rather than what was mentioned in
+            it. Module names and contents are drawn from the official curriculum page.{" "}
+            <Verify>VERIFY: current module list</Verify>
           </p>
+          <div className="my-6 grid gap-3 sm:grid-cols-2">
+            {logicMojoModules.map((m, i) => (
+              <NoteCard key={m.module} title={m.module} index={i + 1}>
+                <p className="font-mono text-[0.68rem] uppercase tracking-wider text-accent">
+                  {m.layer}
+                </p>
+                <p>{m.capability}</p>
+              </NoteCard>
+            ))}
+          </div>
 
-          <H3>3. Deployment is in the course, not left as an exercise</H3>
+          <DataTable
+            head={[
+              "Capability",
+              "What typical courses teach",
+              "What AI Engineer interviews test",
+              "LogicMojo",
+            ]}
+            rows={visualTwo}
+            caption="Visual 2 — the gap between what is taught, what is tested, and what a specialist curriculum covers. Audit any syllabus you are considering against the middle column; that column is not negotiable, because it is the interview."
+          />
+
+          <H3 id="lm-teaching">2) Teaching, mentorship and structure — is the delivery built for completion?</H3>
           <p>
-            MLOps and LLMOps — Docker, FastAPI, CI/CD, experiment tracking, monitoring, drift, cost
-            and latency — are the widest gap between a trained model and a job offer. A learner who
-            has containerised and deployed their own capstone answers "how would you serve this to
-            10,000 users?" from memory rather than from theory.
+            Curriculum decides your ceiling; delivery decides whether you reach it. The specifics
+            that matter here are testable rather than adjectival:
           </p>
-
-          <H3>4. Live IST delivery with human code review</H3>
-          <p>
-            Sessions run in IST windows built around a working week, with recordings for the
-            evenings when work wins. Doubts are resolved inside the cohort rhythm rather than in a
-            forum queue, and a human looks at your code. If you have abandoned a self-paced course
-            before, this is the variable that changes your outcome — and it is the one that free
-            content structurally cannot provide.
-          </p>
-
-          <H3>5. Projects escalate, and you rehearse defending them</H3>
-          <p>
-            An ML project with a written evaluation rationale, a deep-learning build, an LLM
-            application with structured outputs, a production-style RAG system with evaluation, a
-            fine-tuned open-weight model with benchmarks, an agent that survives tool failure, and a
-            deployed capstone. Interview preparation includes project defence — being pushed on why
-            you chose that chunk size, that metric, that serving pattern — which is exactly the
-            round where most candidates lose the offer.
-          </p>
-
-          <H3>6. Capability per rupee</H3>
-          <p>
-            LogicMojo prices well below the university-branded programmes while covering more of the
-            2026 stack, which is why it scores highest on the value pillar. Confirm the current fee,
-            GST, EMI terms and refund window in writing before enrolling.{" "}
-            <em>[VERIFY: fee, EMI, refund window, batch dates.]</em>
-          </p>
-
-          <Callout label="Fit guidance — who should also look elsewhere">
+          <ul>
+            <li>
+              <strong>Live IST evening and weekend batches</strong> taught by practitioners — not a
+              US timetable you will quietly stop attending in week five.
+            </li>
+            <li>
+              <strong>In-session doubt resolution</strong> plus mentor channels between sessions, so
+              a blocker costs you an hour rather than a week.
+            </li>
+            <li>
+              <strong>Human code review.</strong> An auto-grader can tell you the output is wrong; a
+              reviewer tells you the abstraction is wrong. This remains the single most
+              under-priced feature in Indian EdTech.
+            </li>
+            <li>
+              <strong>Recordings with structured catch-up</strong> for the weeks when a production
+              incident wins the evening.
+            </li>
+            <li>
+              <strong>Cohort accountability</strong> — peers one week ahead of you are a stronger
+              completion mechanism than motivation has ever been.
+            </li>
+            <li>
+              <strong>Python and maths onboarding</strong> for switchers, so Layer 1 is built rather
+              than assumed.
+            </li>
+            <li>
+              <strong>Batch deferral or transfer</strong> — the policy that decides whether a bad
+              month ends the attempt.
+            </li>
+            <li>
+              <strong>Continuous curriculum refresh.</strong> In AI this is a delivery feature, not
+              an editorial nicety; a syllabus that has not moved in eighteen months has fallen behind
+              the interview.
+            </li>
+          </ul>
+          <Callout label="Ask every provider these five questions — including this one">
+            <ol className="mt-1">
+              {fiveQuestions.map((f) => (
+                <li key={f.q}>
+                  <strong>{f.q}</strong> — {f.why}
+                </li>
+              ))}
+            </ol>
             <p>
-              If you specifically need a university-issued academic credential for a visa
-              application or an HR degree filter, look at upGrad (IIIT-Bangalore) or Great Learning
-              (UT Austin) as well. If you want fully self-paced study with no fixed timings, a MOOC
-              track such as DeepLearning.AI or IBM suits that preference better. If your single
-              objective is a product-company referral network and budget is not a constraint,
-              Scaler's hiring desk is the strongest on this list. None of that changes the
-              curriculum comparison — it changes which constraint you are optimising for.
+              These are printed here as confidence, not defensiveness. A provider that welcomes the
+              questions is telling you something; so is one that deflects them.
             </p>
           </Callout>
 
+          <H3 id="lm-projects">3) What do you actually build?</H3>
+          <p>
+            Ten to fifteen projects, escalating from guided to independent, ending in a deployed
+            capstone you designed. <Verify>VERIFY: current project list</Verify>
+          </p>
+          <ol>
+            {projectLadder.map((p) => (
+              <li key={p}>{p}</li>
+            ))}
+          </ol>
+          <p>
+            <strong>Why project count misleads.</strong> Ten guided notebooks with the answers filled
+            in produce one portfolio piece; three projects where you chose the chunking strategy,
+            defended the metric and measured the failure cases produce three. Design decisions were
+            weighted here, not repository counts — because that is exactly how the project deep-dive
+            round is scored.
+          </p>
+
+          <H3 id="lm-career">4) Interview preparation and career support</H3>
+          <p>
+            Career support is scoped to AI roles specifically: AI-role interview preparation,
+            project-defence practice (being pushed on why that chunk size, that metric, that serving
+            pattern), AI system-design cases, portfolio and GitHub review, resume positioning around
+            systems built rather than courses completed, and career guidance — described precisely as
+            offered on the official pages.{" "}
+            <Verify>VERIFY: current career-support scope</Verify>
+          </p>
+          <p>
+            <strong>Stated plainly:</strong> outcomes depend on your completion, your portfolio and
+            your application effort. No placement is guaranteed here, no placement percentage is
+            quoted, and no salary outcome is promised — by LogicMojo or by anyone else on this page.
+          </p>
+
+          <H3 id="lm-pricing">5) Pricing and value — capability per rupee</H3>
+          <DataTable
+            head={["Price band", "What the market offers here", "What you typically get", "Where LogicMojo sits"]}
+            rows={priceBands}
+            caption="Fees change; verify every figure on the official page before paying. [VERIFY: fee, GST, EMI terms, refund window, bond — believed none.]"
+          />
+          <p>
+            Express value as{" "}
+            <strong>capability level reached ÷ (₹ spent + hours spent)</strong> and the ₹40K–₹1.2L
+            band is where the curve peaks. Above it, higher prices typically buy brand recognition,
+            placement infrastructure or an academic credential rather than a higher capability
+            ceiling. Those are legitimate purchases — a visa application does not care how well you
+            can re-rank retrieved chunks — but they should be recognised as what they are.
+          </p>
+
+          <H3 id="lm-fit">6) Who LogicMojo fits best — and when another option here may suit you</H3>
+          <div className="my-6 grid gap-3 sm:grid-cols-2">
+            <NoteCard title="Strong fit">
+              <ul className="mt-1">
+                <li>Working developers, 1–8 years, with 10–15 hours a week</li>
+                <li>Career switchers who need prerequisite support and full depth in one sequence</li>
+                <li>Self-taught learners who need a spine, code review and portfolio design</li>
+                <li>Anyone targeting roles that test RAG, agents, fine-tuning and deployment</li>
+              </ul>
+            </NoteCard>
+            <NoteCard title="Complementary options">
+              <ul className="mt-1">
+                <li>University-issued credential required → upGrad, Great Learning</li>
+                <li>Fully self-paced, no fixed timings → DeepLearning.AI, IBM</li>
+                <li>Sub-₹15,000 exploratory budget → PW Skills, GUVI</li>
+                <li>Research or PhD pathway → university MTech/MS, NPTEL</li>
+              </ul>
+            </NoteCard>
+          </div>
           <p>
             <strong>What is not claimed here:</strong> no placement percentage, no learner count, no
-            salary outcome, no alumni quote. Nothing on this page promises you a job or a salary,
-            because no course can. What a course can do is make you capable and prepared, and that
-            is what the ranking measures.
+            salary outcome, no alumni quote. Confidence in this section comes from specificity, and
+            every figure that could not be verified is marked rather than estimated.
           </p>
+          <div className="mt-6">
+            <a
+              href="https://logicmojo.com/artificial-intelligence-machine-learning-course"
+              className="inline-block rounded-xl bg-gradient-to-r from-primary to-accent px-5 py-2.5 text-sm font-semibold text-primary-foreground no-underline shadow-editorial transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-glow"
+            >
+              Explore LogicMojo&apos;s AI &amp; ML Course — curriculum, live batches &amp; project portfolio →
+            </a>
+          </div>
         </Section>
 
-        {/* HONORABLE MENTIONS */}
-        <Section id="honorable-mentions" eyebrow="Section 7" title="Honorable Mentions — And Why They Didn't Make the Ten">
+        {/* ALSO CONSIDERED */}
+        <Section
+          id="honorable-mentions"
+          eyebrow="Section 7"
+          title="Also Considered — 10 Options That Didn't Make the Top 10 (And Why)"
+        >
           <p>
-            Several of these are excellent. They were excluded for structural reasons — scope,
-            pacing, pricing or support — not quality.
+            Several of these are excellent, and two of them are on my own recommended free stack.
+            They were excluded for structural reasons — scope, pacing, pricing, support or timeline —
+            not quality.
           </p>
           <DataTable
-            head={["Program", "What it does well", "Why it is not in the top 10"]}
+            head={["Option", "Short verdict", "Why it is not in the top 10"]}
+            rows={alsoConsidered.map((h) => [h.name, h.verdict, h.note.split(". ")[0] + "."])}
+          />
+          <div className="my-6 grid gap-3 sm:grid-cols-2">
+            {alsoConsidered.map((h, i) => (
+              <NoteCard key={h.name} title={h.name} index={i + 1}>
+                <p className="font-mono text-[0.68rem] uppercase tracking-wider text-accent">
+                  {h.verdict}
+                </p>
+                <p>{h.note}</p>
+              </NoteCard>
+            ))}
+          </div>
+          <p>
+            Each of these can be the right answer for a specific reader — a research-bound student, a
+            senior manager buying a peer group, an engineer who needs one cloud certification for an
+            internal move. This ranking optimises for a general Indian learner targeting AI Engineer
+            roles, and that is the only claim it makes.
+          </p>
+          <DataTable
+            head={["Honorable mention", "What it does well", "Why it is not ranked"]}
             rows={honorableMentions.map((h) => [h.name, h.why, h.excluded])}
+            caption="A second pass over programs frequently raised by readers."
           />
         </Section>
 
         {/* QUIZ */}
-        <Section id="quiz" eyebrow="Section 8" title="AI Course Finder Quiz — Which One Fits You?">
+        <Section
+          id="quiz"
+          eyebrow="Section 8"
+          title="AI Course Finder Quiz — Which Course Fits Your Path to AI Engineer?"
+        >
           <p>
-            Five questions on background, budget, hours, priority and self-discipline. The output is
-            a pick and the reasoning behind it, not a lead-capture form.
+            Eight single-select questions on background, current level, goal, budget, weekly hours,
+            learning style, priority and timeline. The output is one primary recommendation with a
+            one-line reason and, where useful, a secondary suggestion. No email gate, no lead form.
           </p>
+          <Callout label="Output logic, stated explicitly" tone="muted">
+            <ul className="mt-1">
+              <li>Deep skills + 10+ hrs/week + ₹15K–₹1.5L + live or mixed → <strong>LogicMojo</strong></li>
+              <li>Placement infrastructure + ₹1.5L+ + 15+ hrs → <strong>Scaler</strong> (LogicMojo secondary)</li>
+              <li>University credential + career switch → <strong>upGrad</strong> or <strong>Great Learning</strong></li>
+              <li>Employer-funded credential → <strong>Simplilearn</strong></li>
+              <li>IIT tag at mid-price → <strong>Intellipaat</strong></li>
+              <li>Free only → <strong>DeepLearning.AI + Hugging Face + Kaggle</strong></li>
+              <li>Under ₹15K → <strong>PW Skills</strong> or <strong>GUVI</strong></li>
+              <li>Vernacular preference → <strong>GUVI</strong></li>
+              <li>Self-paced and already coding → <strong>IBM AI Engineering</strong></li>
+              <li>Under 6 hrs/week, AI literacy goal → <strong>DeepLearning.AI</strong> or vendor tracks</li>
+            </ul>
+          </Callout>
         </Section>
         <CourseFinderQuiz />
 
         {/* PROJECTS */}
-        <Section id="projects" eyebrow="Section 9" title="Projects That Get AI Engineers Hired (And the Ones That Don't)">
+        <Section
+          id="projects"
+          eyebrow="Section 9"
+          title="Projects That Get AI Engineers Hired in India (2026)"
+        >
           <p>
-            Interviewers do not count projects; they pick one and dig until they find the bottom of
-            your understanding. Build fewer, deeper, and deployed.
+            Interviewers do not count projects. They pick one and dig until they find the bottom of
+            your understanding. Eight archetypes cover almost every AI Engineer job description in
+            India right now — build three of them properly rather than all eight badly.
           </p>
+          <div className="my-6 space-y-4">
+            {archetypes.map((a, i) => (
+              <Reveal key={a.title} className="glass-card lift-hover p-5">
+                <div className="flex items-baseline gap-3">
+                  <span className="font-mono text-xs text-accent">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="font-display text-xl text-primary">{a.title}</p>
+                </div>
+                <p className="mt-2 text-sm">
+                  <strong>Demonstrates:</strong> {a.demonstrates}
+                </p>
+                <p className="mt-1 text-sm">
+                  <strong>Answers the question:</strong> {a.question}
+                </p>
+                <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-xl border border-border bg-surface p-3">
+                    <p className="text-[0.7rem] font-semibold uppercase tracking-wider text-muted-foreground">
+                      Weak version
+                    </p>
+                    <p className="mt-1 text-sm text-muted-foreground">{a.weak}</p>
+                  </div>
+                  <div className="rounded-xl border border-accent/40 bg-highlight p-3">
+                    <p className="text-[0.7rem] font-semibold uppercase tracking-wider text-accent">
+                      Strong version
+                    </p>
+                    <p className="mt-1 text-sm text-highlight-foreground">{a.strong}</p>
+                  </div>
+                </div>
+                <p className="mt-3 font-mono text-xs text-muted-foreground">Stack: {a.stack}</p>
+              </Reveal>
+            ))}
+          </div>
 
-          <H3>The five projects that convert</H3>
+          <H3 id="readme">A README template an interviewer respects</H3>
           <DataTable
-            head={["Project", "What it proves", "The detail that makes it credible"]}
-            rows={[
-              [
-                "Document RAG system with evaluation",
-                "You understand retrieval, not just generation",
-                "A measured evaluation harness (retrieval hit rate, faithfulness, answer relevance) and honest failure cases",
-              ],
-              [
-                "Fine-tuned open-weight model",
-                "You can adapt models, and you know the cost",
-                "Benchmarks against the base model, including where fine-tuning made things worse",
-              ],
-              [
-                "Tool-using agent with failure handling",
-                "You think in systems, not demos",
-                "What happens on timeout, malformed tool output and an infinite plan loop",
-              ],
-              [
-                "Deployed ML or LLM service",
-                "You have crossed the production gap",
-                "Docker, FastAPI, a health endpoint, logging, latency numbers and a monthly cost estimate",
-              ],
-              [
-                "End-to-end classical ML project",
-                "Your foundations are real",
-                "A written rationale for the metric, the validation split and the handling of imbalance",
-              ],
-            ]}
+            head={["Section", "What goes in it"]}
+            rows={readmeOutline.map((r) => [r.heading, r.content])}
           />
 
-          <H3>Projects that quietly hurt you</H3>
+          <H3 id="defence">The portfolio-defence checklist</H3>
           <ul>
-            <li>The Titanic, Iris or MNIST notebook — an interviewer reads this as "did tutorials".</li>
-            <li>A copied LangChain chatbot with the tutorial's variable names still in it.</li>
-            <li>Anything with no README, or a README that is just installation steps.</li>
-            <li>A Streamlit demo with no evaluation, presented as a production system.</li>
-            <li>Ten shallow repos where three deep ones would have done more work for you.</li>
+            {defenceChecklist.map((d) => (
+              <li key={d}>{d}</li>
+            ))}
           </ul>
-
-          <H3>How to write a README an interviewer respects</H3>
           <p>
-            Problem statement in two sentences. An architecture diagram. A "decisions and
-            trade-offs" section — chunk size, embedding model, retrieval strategy, why. Evaluation
-            results with actual numbers. Known limitations, stated before anyone asks. And how to
-            run it. The decisions section is what gets read.
+            Which courses produce which archetypes is visible in the project row of the curriculum
+            scorecard above: specialist live programs reach the RAG-with-evaluation, agent and
+            deployment archetypes; university programs reliably produce the classical ML and
+            case-study archetypes; MOOCs produce scaffolded assignments that teach well and
+            demonstrate little.
           </p>
         </Section>
 
         {/* INTERVIEWS */}
-        <Section id="interviews" eyebrow="Section 10" title="AI Engineer Interview Preparation — What India Actually Asks">
+        <Section
+          id="interviews"
+          eyebrow="Section 10"
+          title="AI Engineer Interview Preparation — What Indian Companies Actually Ask"
+        >
           <p>
-            A typical Indian AI Engineer loop in 2026 runs four to five rounds: a screening call, a
-            coding or ML fundamentals round, an LLM/system-design round, a deep project defence, and
-            a hiring-manager conversation.
+            A typical 2026 loop runs five rounds. The third and fourth decide most outcomes, and
+            almost nobody prepares for them properly.
           </p>
           <DataTable
             head={["Round", "What is tested", "Representative questions"]}
-            rows={[
-              ["Screening", "Vocabulary and honesty", "\"Explain RAG to me.\" \"What did you actually build yourself?\""],
-              ["Coding / ML fundamentals", "Python, data manipulation, metric reasoning", "\"Why F1 here?\" \"Diagnose this learning curve.\" \"Fix this leakage.\""],
-              ["LLM & system design", "Architecture under constraints", "\"Design RAG for 50,000 internal documents with a 2-second latency budget.\" \"How do you evaluate it?\""],
-              ["Project defence", "Depth and ownership", "\"Why that chunk size?\" \"What broke?\" \"What would you do differently?\""],
-              ["Hiring manager", "Judgement and cost awareness", "\"What does this cost per month?\" \"When would you not use an LLM?\""],
-            ]}
+            rows={interviewRounds.map((r) => [r.round, r.tests, r.typical])}
           />
-          <H3>The five answers worth rehearsing until they are automatic</H3>
-          <ol>
-            <li>RAG versus fine-tuning: when each wins, and what it costs.</li>
-            <li>How you evaluate an LLM system, including LLM-as-judge and its limitations.</li>
-            <li>How you would reduce hallucination in a system you built.</li>
-            <li>How an agent should behave when a tool fails or a plan loops.</li>
-            <li>Your latency and cost budget for a feature, with the arithmetic.</li>
-          </ol>
+
+          <H3 id="question-bank">18 question types, and what a strong answer contains</H3>
+          <div className="my-6 grid gap-3 sm:grid-cols-2">
+            {interviewQuestions.map((q, i) => (
+              <NoteCard key={q.q} title={q.q} index={i + 1}>
+                <p>{q.answer}</p>
+              </NoteCard>
+            ))}
+          </div>
+
+          <H3 id="four-week-plan">A four-week interview-preparation plan</H3>
+          <DataTable
+            head={["Week", "Focus", "Daily discipline"]}
+            rows={fourWeekPlan.map((w) => [w.week, w.focus, w.daily])}
+          />
           <p>
-            <strong>Where candidates lose it:</strong> claiming a project they cannot defend,
-            answering "why this metric?" with "it's standard", and treating deployment as somebody
-            else's problem. Practising project defence out loud with someone who pushes back is
-            worth more in the final month than another course module.
+            Structured interview preparation is not universal on this list — the career-support table
+            above marks which programs include AI-role-specific preparation and project defence, and
+            which offer generic resume workshops. If yours does not, buy two or three paid mock
+            interviews instead; it is the cheapest high-leverage spend in the whole journey.
           </p>
         </Section>
 
         {/* JOBS AND SALARIES */}
-        <Section id="jobs-salaries" eyebrow="Section 11" title="AI Engineer Jobs, Salaries and the Hiring Landscape in India">
+        <Section
+          id="jobs-salaries"
+          eyebrow="Section 11"
+          title="AI Engineer Jobs and Salaries in India (2026)"
+        >
+          <Callout label="Read this before the numbers" tone="muted">
+            <p>
+              Compensation varies enormously by city, employer type, prior experience, interview
+              performance and negotiation. Every figure below is an indicative range compiled from
+              public aggregators and job postings, marked{" "}
+              <Verify>VERIFY: current market data</Verify> and refreshed quarterly. Source:{" "}
+              <span className="font-mono">[INSERT: source and check date]</span>. Treat these as a
+              band to verify, never as a quote.
+            </p>
+          </Callout>
           <DataTable
-            head={["Experience band", "Typical range (services / mid-market)", "Product companies, GCCs, AI-native", "What moves you up the band"]}
-            rows={salaryTable}
-            caption="Directional ranges compiled from public salary aggregators and posting data; treat as ranges to verify, not quotes. [VERIFY at time of publication.]"
+            head={["Role", "Core skills", "Entry bar", "Indicative range (₹ LPA)", "Best-fit courses"]}
+            rows={roleSalaryTable}
           />
-          <H3>What actually determines your number</H3>
+          <DataTable
+            head={["Experience band", "Services / mid-market", "Product, GCC, AI-native", "What moves you up"]}
+            rows={salaryTable}
+            caption="Directional bands by experience. [VERIFY at time of publication.]"
+          />
+
+          <H3 id="employers">Hiring by employer type</H3>
+          <div className="my-6 grid gap-3 sm:grid-cols-2">
+            {employerTypes.map((e, i) => (
+              <NoteCard key={e.type} title={e.type} index={i + 1}>
+                <p>{e.what}</p>
+              </NoteCard>
+            ))}
+          </div>
+
+          <H3 id="timelines">Transition timelines by background</H3>
+          <DataTable
+            head={["Starting point", "Indicative timeline", "Where the work actually is", "Confidence"]}
+            rows={transitionTimelines}
+            caption="Indicative only, assuming 10–12 protected hours a week. Consistency moves these numbers far more than budget does."
+          />
+
+          <H3 id="salary-movers">What moves salary</H3>
           <ul>
             <li>
-              <strong>Prior engineering experience</strong> — the single biggest multiplier for
-              switchers; six years of backend does not reset to zero.
-            </li>
-            <li>
-              <strong>Production ownership</strong> — having deployed and operated something,
-              anything, moves you a band.
-            </li>
-            <li>
-              <strong>Employer type</strong> — GCCs and product companies pay materially above
-              services firms for the same skills.
-            </li>
-            <li>
-              <strong>Location</strong> — Bengaluru and Hyderabad lead; remote roles are converging
-              but not equalised.
-            </li>
-            <li>
-              <strong>Negotiation evidence</strong> — a deployed portfolio is leverage; a
+              <strong>Portfolio</strong> — a deployed, evaluated system is negotiation leverage; a
               certificate is not.
             </li>
+            <li>
+              <strong>Deployment experience</strong> — having operated something in production moves
+              you a band on its own.
+            </li>
+            <li>
+              <strong>System-design reasoning</strong> — the ability to cost and scale a design is
+              what separates senior from mid.
+            </li>
+            <li>
+              <strong>Domain knowledge</strong> — BFSI, healthcare and manufacturing pay for people
+              who understand the domain and the model.
+            </li>
+            <li>
+              <strong>Employer type and city</strong> — GCCs and product companies in Bengaluru and
+              Hyderabad lead; remote is converging but not equalised.
+            </li>
           </ul>
-          <p>
-            Structural tailwinds are real — GCC-led hiring growth, enterprise LLM adoption in BFSI
-            and healthcare, and public initiatives such as the IndiaAI Mission expanding compute and
-            skilling capacity. None of them change what you are asked in round three.
-          </p>
         </Section>
 
         {/* FREE VS PAID */}
-        <Section id="free-vs-paid" eyebrow="Section 12" title="Free vs Paid — An Honest Analysis">
+        <Section
+          id="free-vs-paid"
+          eyebrow="Section 12"
+          title="Free vs. Paid AI Engineer Courses in India"
+        >
           <p>
-            Everything in the 2026 AI Engineer skill stack can be learned for ₹0. DeepLearning.AI,
-            Fast.ai, Hugging Face courses, Kaggle Learn, NPTEL, and the documentation for every
-            library you will touch. That is a true statement, and it is also the reason a lot of
-            people are still on month nine of month three.
+            Everything in the 2026 AI Engineer skill stack can be learned for ₹0. That is a true
+            statement, and it is also why so many people are on month nine of month three. Here is a
+            free stack that genuinely works, in order.
           </p>
           <DataTable
-            head={["What you need", "Free path gives you", "A good paid cohort gives you"]}
-            rows={[
-              ["Content", "Everything, often better explained", "Curated, sequenced, current"],
-              ["Sequence", "You assemble it — the expensive part", "Decided for you"],
-              ["Code review", "None", "A human reading your code"],
-              ["Accountability", "Your own discipline", "Cohort, schedule, someone who notices"],
-              ["Doubt resolution", "Forums, hours or days", "Same session, usually"],
-              ["Deployment practice", "Rarely covered end-to-end", "Built into the capstone"],
-              ["Interview rehearsal", "None", "Project defence practice"],
-              ["Cost", "₹0 + compute", "₹25,000 – ₹4,00,000"],
-            ]}
+            head={["Step", "What it covers", "Time", "Cost"]}
+            rows={freeStack}
+            caption="A usable free sequence. Follow it in order; the ordering is the part that is normally sold to you."
           />
+          <H3 id="free-limits">What free cannot give you</H3>
+          <ul>
+            {freeCannotGive.map((f) => (
+              <li key={f}>{f}</li>
+            ))}
+          </ul>
+          <Quote>
+            Paid courses in 2026 don&apos;t sell information. They sell structure, feedback, sequence
+            and accountability. If you can supply those yourself, free is the rational choice. If
+            you&apos;ve started and stopped before, the structure is the product.
+          </Quote>
           <p>
-            <strong>My honest recommendation:</strong> spend eight weeks free first. Work through
-            the ML foundations and one GenAI short course. If you finish, you have learned something
-            more valuable than the content — that you finish — and you can invest with confidence in
-            a cohort for the GenAI-to-production layers. If you do not finish, you have discovered,
-            for ₹0, that you need structure. Either result is worth eight weeks.
+            <strong>My honest recommendation:</strong> spend eight weeks free first. If you finish,
+            you have learned something more valuable than the content — that you finish — and you can
+            invest with confidence in a cohort for the GenAI-to-production layers. If you do not
+            finish, you have discovered for ₹0 exactly what you need to buy.
           </p>
         </Section>
 
         {/* ROI */}
-        <Section id="roi" eyebrow="Section 13" title="The ROI Reality — What a Course Can and Cannot Buy">
-          <p>
-            Run the arithmetic before the emotion. A ₹1,50,000 program repaid by a ₹3L salary
-            increase looks like a six-month payback — but only if the increase happens, and it
-            happens because of capability and portfolio, not enrolment.
-          </p>
-          <DataTable
-            head={["Scenario", "Investment", "Realistic outcome window", "What determines it"]}
-            rows={[
-              ["Developer, 4 yrs, ₹1L program, 12 hrs/week", "₹1L + 12 months", "Internal AI project or switch in 6–12 months", "Portfolio depth and internal visibility"],
-              ["Fresher, ₹30K program, 20 hrs/week", "₹30K + 9 months", "First role in 6–15 months", "Internships, projects, persistence through rejections"],
-              ["Switcher from non-tech, ₹1.5L program", "₹1.5L + 15–18 months", "Junior AI or adjacent data role", "Whether Layers 1–2 were done properly"],
-              ["Anyone, ₹3L+ program, no projects deployed", "₹3L + 12 months", "Certificate, no offer", "The failure mode this article exists to prevent"],
-            ]}
-          />
-          <Callout tone="muted">
+        <Section id="roi" eyebrow="Section 13" title="ROI Reality — Is an AI Engineer Course Worth It?">
+          <Callout label="The formula">
+            <p className="font-mono text-sm">
+              ROI = (realistic salary delta over 24 months × probability of achieving it) − (fee +
+              EMI interest + opportunity cost of hours)
+            </p>
             <p>
-              A course buys sequence, review, accountability and rehearsal. It does not buy a job.
-              Anyone who tells you otherwise is selling the one thing they cannot deliver — and the
-              contract's fine print will agree with me, not with the landing page.
+              Most course comparisons stop at the fee. The two terms that actually decide the sign of
+              that expression are the probability term and the hours term — and both are functions of
+              whether the format fits your life.
             </p>
           </Callout>
+          <div className="my-6 space-y-4">
+            {roiScenarios.map((s) => (
+              <Reveal key={s.label} className="glass-card lift-hover p-5">
+                <div className="flex flex-wrap items-center gap-3">
+                  <p className="font-display text-xl text-primary">{s.label}</p>
+                  <span className="rounded-md bg-highlight px-2 py-0.5 font-mono text-[0.65rem] uppercase tracking-wider text-highlight-foreground ring-1 ring-accent/25">
+                    {s.badge}
+                  </span>
+                </div>
+                <dl className="mt-3 grid gap-x-6 gap-y-1.5 sm:grid-cols-2">
+                  {s.rows.map(([k, v]) => (
+                    <div key={k} className="flex justify-between gap-3 border-b border-border/60 py-1 text-sm">
+                      <dt className="text-muted-foreground">{k}</dt>
+                      <dd className="text-right font-medium">{v}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <p className="mt-3 text-sm">{s.verdict}</p>
+              </Reveal>
+            ))}
+          </div>
+          <p>
+            Three determinants decide which scenario you land in:{" "}
+            <strong>completion, portfolio quality and application effort</strong>. Note that the fee
+            appears in none of them.
+          </p>
+          <Quote>
+            The course is roughly 40% of your outcome. What you build during it, and what you do in
+            the three months after, is the other 60%.
+          </Quote>
         </Section>
 
         {/* RED FLAGS */}
-        <Section id="red-flags" eyebrow="Section 14" title="Red-Flags Checklist — Print This Before You Pay">
+        <Section
+          id="red-flags"
+          eyebrow="Section 14"
+          title="Red Flags — Spotting a Course That Won't Make You an AI Engineer"
+        >
+          <p>
+            Fifteen signals, each of which I have seen on a live Indian landing page in the last
+            year. One is a question to ask; three together is a decision.
+          </p>
+          <div className="my-6 grid gap-3 sm:grid-cols-2">
+            {redFlags.map((r, i) => (
+              <Reveal key={r.flag} className="rounded-xl border border-destructive/25 bg-card p-4 shadow-editorial lift-hover">
+                <p className="flex items-start gap-2 font-semibold text-primary">
+                  <span className="font-mono text-xs text-destructive">{String(i + 1).padStart(2, "0")}</span>
+                  {r.flag}
+                </p>
+                <p className="mt-1 text-sm text-muted-foreground">{r.why}</p>
+              </Reveal>
+            ))}
+          </div>
+          <H3 id="sales-call">Sales-call rules</H3>
           <ul>
-            <li><strong>The syllabus PDF is not public</strong> and only arrives after a sales call.</li>
-            <li><strong>GenAI is three sessions at the end</strong> of a 2022 data-science curriculum.</li>
-            <li><strong>No deployment module.</strong> None. Anywhere.</li>
-            <li><strong>"Live" classes</strong> that turn out to be recordings with a moderator.</li>
-            <li><strong>No named instructors</strong>, or names with no verifiable practitioner history.</li>
-            <li><strong>"100% placement"</strong> or a "guarantee" with an eligibility clause you cannot read yet.</li>
-            <li><strong>Salary screenshots</strong> with no denominator, window or role type.</li>
-            <li><strong>Countdown timers and "2 seats left"</strong> on an online course with unlimited seats.</li>
-            <li><strong>Refund terms shared only after payment</strong>, or a window measured in hours.</li>
-            <li><strong>No code review</strong> anywhere in the delivery model, at any price.</li>
-            <li><strong>Curriculum with no evaluation content</strong> — no metrics rigour, no LLM evaluation.</li>
-            <li><strong>Sales pressure that escalates</strong> when you ask for the syllabus in writing.</li>
+            {salesCallRules.map((s) => (
+              <li key={s}>{s}</li>
+            ))}
           </ul>
           <p>
-            One question filters most of this: <em>"Can you send me the full module list, the
-            instructor names, the refund policy and three alumni you did not hand-pick?"</em> How a
-            provider answers that email tells you more than any review site.
+            One email filters most of this:{" "}
+            <em>
+              &ldquo;Please send the full module list, the instructor names for my batch, the refund
+              policy, the EMI lender and three alumni I can contact.&rdquo;
+            </em>{" "}
+            How a provider answers that tells you more than any review site.
           </p>
         </Section>
 
+        {/* AUTHOR */}
+        <Section id="author" eyebrow="Section 15" title="About the Author">
+          <Reveal className="glass-card lift-hover flex flex-col gap-5 p-6 sm:flex-row">
+            <div className="flex h-28 w-28 shrink-0 items-center justify-center rounded-2xl border border-dashed border-accent/50 bg-gradient-to-br from-secondary to-card text-center font-mono text-[0.6rem] uppercase tracking-wide text-muted-foreground">
+              [PHOTO PLACEHOLDER]
+            </div>
+            <div>
+              <p className="eyebrow">Author</p>
+              <p className="mt-1 font-display text-2xl text-primary">[INSERT: Author name]</p>
+              <p className="text-sm font-semibold text-accent">
+                [INSERT: Role] — AI education analyst and curriculum reviewer
+              </p>
+              <p className="mt-3 text-sm text-muted-foreground">
+                [INSERT: 60–90-word bio.] Methodology used here: every published curriculum was read
+                module by module, mapped against the seven-layer AI Engineer skill stack, and scored
+                on six weighted pillars stated in the introduction. Fees, affiliations and module
+                lists were checked against official pages on the recorded date; anything that could
+                not be verified is marked rather than estimated. This analysis exists because the
+                affiliate listicles ranking these programs are ranked by commission, not curriculum.
+              </p>
+              <p className="mt-3 text-sm">
+                LinkedIn: <span className="font-mono">[INSERT URL]</span> · Last reviewed:{" "}
+                <span className="font-mono">[INSERT DATE]</span> · Reviewed quarterly; next review{" "}
+                <span className="font-mono">[INSERT DATE]</span>.
+              </p>
+            </div>
+          </Reveal>
+        </Section>
+
+        {/* REVIEWERS */}
+        <Section id="reviewers" eyebrow="Section 16" title="Expert Reviewers">
+          <p>
+            Five practitioners reviewed specific sections of this article for accuracy. Names,
+            photographs, bios and quotes are placeholders until each reviewer confirms them in
+            writing — no reviewer, quote or affiliation on this page may be invented.
+          </p>
+        </Section>
+        <ReviewerCarousel />
+
+        {/* FAQS */}
+        <Section id="faqs" eyebrow="Section 17" title="Frequently Asked Questions">
+          <p>
+            Thirty-five questions readers actually send, grouped into five clusters and answered
+            directly in the first sentence. Everything below is also emitted as FAQPage structured
+            data.
+          </p>
+        </Section>
+        <Faq />
+
         {/* VERDICT */}
-        <Section id="verdict" eyebrow="Section 15" title="Final Verdict">
+        <Section
+          id="verdict"
+          eyebrow="Section 18"
+          title="Final Verdict — The Best AI Course in India to Become an AI Engineer (2026)"
+        >
           <p>
-            If you want to be hired as an AI Engineer in India in 2026, you need one continuous
-            sequence from Python to a deployed, evaluated LLM system, with someone reviewing your
-            code and pushing back on your design decisions. On that measure —{" "}
-            <strong>LogicMojo's AI &amp; Machine Learning Course is the strongest overall choice</strong>{" "}
-            on this list: the fullest 2026 curriculum including the rows most programs skip, live
-            IST delivery, escalating projects ending in a deployed capstone, interview preparation
-            with project defence, and the best capability per rupee here.
+            <strong>LogicMojo&apos;s AI &amp; Machine Learning Course</strong> ranks first because it
+            runs one uninterrupted sequence from Python to a deployed, evaluated LLM system — live,
+            in IST, with human code review — at the price band where capability per rupee peaks.{" "}
+            <strong>Scaler</strong> ranks second because its placement infrastructure and
+            product-company network are the strongest here, and that is worth real money to the right
+            learner. <strong>upGrad (IIIT-Bangalore)</strong> ranks third because a university-issued
+            credential clears HR filters that no bootcamp certificate touches.
           </p>
           <p>
-            Choose <strong>Scaler</strong> if you are buying the product-company hiring network and
-            can carry the fee. Choose <strong>upGrad</strong> or <strong>Great Learning</strong> if
-            a university credential is a hard requirement — and close the GenAI and deployment gap
-            deliberately afterwards. Start with <strong>DeepLearning.AI</strong> or{" "}
-            <strong>IBM</strong> if you are testing your commitment at near-zero cost. Start with{" "}
-            <strong>GUVI</strong> or <strong>PW Skills</strong> if budget is the binding constraint
-            and structure is what you are missing.
+            The right answer for you depends on four things, and none of them is a review score: your
+            goal, your budget, the hours you can genuinely protect each week, and your honest track
+            record on finishing what you start. A ₹3L program you abandon in month three is worse
+            than a ₹40K program you complete — worse in money, and far worse in the nine months you
+            do not get back.
           </p>
           <p>
-            Whichever you choose: deploy three things, write the READMEs, and rehearse defending
-            them out loud. That is the part no course can do for you, and the part every offer
-            depends on.
+            Which returns to the insight this whole page is built on:{" "}
+            <strong>completion and portfolio determine outcomes, and course choice heavily
+            determines completion.</strong> Curriculum sets your ceiling. Format decides whether you
+            reach it. Evaluate both, in that order, and be sceptical of anyone who will not show you
+            the syllabus before the payment link.
+          </p>
+          <p>
+            <strong>One concrete next action, today:</strong> run the skill-gap checklist above,
+            audit one shortlisted syllabus against the seven layers, send the twelve pre-enrolment
+            questions by email, and block ten hours a week in your calendar for the next month. If
+            you cannot protect the ten hours, no course on this list will change your outcome — and
+            that is worth knowing before you pay, not after.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a
               href="https://logicmojo.com/artificial-intelligence-machine-learning-course"
               className="rounded-xl bg-gradient-to-r from-primary to-accent px-5 py-2.5 text-sm font-semibold text-primary-foreground no-underline shadow-editorial transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-glow"
             >
-              Explore the LogicMojo AI &amp; ML Course
+              Explore LogicMojo&apos;s AI &amp; ML Course — full curriculum, live batches &amp; project portfolio →
             </a>
             <a
               href="#quiz"
@@ -1033,84 +1337,99 @@ function Article() {
           </div>
         </Section>
 
-        {/* AUTHOR */}
-        <Section id="author" eyebrow="Section 16" title="About the Author and Expert Reviewers">
-          <div className="glass-card lift-hover p-5">
-
-            <p className="eyebrow">Author</p>
-            <p className="mt-1 text-lg font-semibold">[INSERT: Author name], AI curriculum analyst</p>
-            <p className="mt-2 text-sm text-muted-foreground">
-              [INSERT: 2–3 sentence bio covering years of engineering experience, AI systems built,
-              and the review methodology used for this article. Include LinkedIn/GitHub links.]
-              Methodology: published curricula were read module by module, mapped to the seven-layer
-              skill stack, and scored on the six weighted pillars stated in the introduction.
-              Unverifiable figures are marked [VERIFY] rather than estimated.
-            </p>
-          </div>
-          <H3>Expert reviewers</H3>
-          <DataTable
-            head={["Reviewer", "Role", "What they reviewed"]}
-            rows={[
-              ["[INSERT: Name]", "Senior AI Engineer, product company [VERIFY]", "Curriculum scorecard, LLM system-design section"],
-              ["[INSERT: Name]", "AI Platform Lead, GCC [VERIFY]", "Hiring landscape, MLOps/LLMOps requirements"],
-              ["[INSERT: Name]", "Engineering Manager, AI-native startup [VERIFY]", "Interview section and project defence guidance"],
-              ["[INSERT: Name]", "Data Science Lead, IT services AI practice [VERIFY]", "Reskilling paths and credential value"],
-              ["[INSERT: Name]", "Career coach, tech hiring [VERIFY]", "Salary bands, placement-claim guidance"],
-            ]}
-            caption="Reviewers commented on accuracy and completeness; the ranking and editorial judgement are the author's."
-          />
-        </Section>
-
-        {/* FAQS */}
-        <Section id="faqs" eyebrow="Section 17" title="Frequently Asked Questions (30+)">
-          <p>
-            The questions readers actually send, answered directly. Everything below is also marked
-            up as FAQ structured data.
-          </p>
-        </Section>
-        <Faq />
-
         {/* LINKS */}
-        <Section id="links" eyebrow="Section 18" title="Related Guides and Next Steps">
+        <Section id="links" eyebrow="Section 19" title="Related Guides and Next Steps">
+          <H3 id="internal-links">Continue on LogicMojo</H3>
           <ul>
-            <li><a href="/ai-engineer-roadmap">AI Engineer roadmap 2026 — month-by-month plan</a></li>
-            <li><a href="/ai-engineer-skills">AI Engineer skills checklist — the seven-layer stack explained</a></li>
-            <li><a href="/ai-engineer-interview-questions">AI Engineer interview questions asked in India</a></li>
-            <li><a href="/ai-engineer-salary-india">AI Engineer salary in India by experience and city</a></li>
-            <li><a href="/rag-course-india">Production RAG — chunking, hybrid search and re-ranking</a></li>
-            <li><a href="/ai-agents-course-india">AI agents and agentic patterns for engineers</a></li>
-            <li><a href="/llm-fine-tuning-guide">Fine-tuning with LoRA and QLoRA — a practical guide</a></li>
-            <li><a href="/mlops-llmops-guide">MLOps and LLMOps for AI Engineers</a></li>
-            <li><a href="/ai-engineer-portfolio-projects">Portfolio projects that get AI Engineers hired</a></li>
-            <li><a href="/ai-course-fees-india">AI course fees in India — what to check before paying</a></li>
+            {internalLinks.map((l) => (
+              <li key={l.anchor}>
+                <a href={l.href}>{l.anchor}</a>{" "}
+                <span className="font-mono text-xs text-muted-foreground">{l.note}</span>
+              </li>
+            ))}
           </ul>
+          <H3 id="external-links">Official documentation referenced</H3>
+          <ul>
+            {externalLinks.map((l) => (
+              <li key={l.anchor}>
+                <a href={l.href} rel="nofollow noopener" target="_blank">
+                  {l.anchor}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p className="text-sm text-muted-foreground">
+            Provider claims in this article were checked against each official course page on{" "}
+            <span className="font-mono">[INSERT: check date]</span>. Fees, module lists, affiliations
+            and durations change without notice — verify before you pay.
+          </p>
         </Section>
       </main>
 
       <footer className="relative overflow-hidden border-t border-border bg-gradient-to-br from-ink via-primary to-ink text-ink-foreground">
         <div aria-hidden className="pointer-events-none absolute inset-0 grid-lines opacity-20" />
-        <div className="relative mx-auto max-w-5xl px-5 py-10">
-          <p className="font-display text-2xl">LogicMojo</p>
-          <p className="mt-2 max-w-xl text-sm opacity-80">
+        <div className="relative mx-auto max-w-5xl px-5 py-12">
+          <div className="flex items-center gap-3">
+            <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-primary font-display text-lg">
+              L
+            </span>
+            <p className="font-display text-2xl">LogicMojo</p>
+          </div>
+          <p className="mt-3 max-w-xl text-sm opacity-80">
             Live, instructor-led AI &amp; Machine Learning training for working professionals in
-            India — from Python and ML foundations to production RAG, fine-tuning, AI agents and
-            deployment.
+            India — foundations to production RAG, fine-tuning, agents and deployment.
           </p>
-          <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm opacity-80">
-            <a href="https://logicmojo.com" className="underline decoration-accent underline-offset-4">
-              logicmojo.com
-            </a>
-            <span>AI &amp; Machine Learning Course</span>
+
+          <div className="mt-8 grid gap-8 text-sm sm:grid-cols-3">
+            <div>
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] opacity-70">Courses</p>
+              <ul className="mt-3 space-y-1.5 opacity-85">
+                <li>AI &amp; ML Course <span className="font-mono text-xs opacity-60">[INSERT LINK]</span></li>
+                <li>GenAI Course <span className="font-mono text-xs opacity-60">[INSERT LINK]</span></li>
+                <li>Data Science Course <span className="font-mono text-xs opacity-60">[INSERT LINK]</span></li>
+                <li>DSA &amp; System Design <span className="font-mono text-xs opacity-60">[INSERT LINK]</span></li>
+              </ul>
+            </div>
+            <div>
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] opacity-70">Resources</p>
+              <ul className="mt-3 space-y-1.5 opacity-85">
+                <li>Curriculum PDF <span className="font-mono text-xs opacity-60">[INSERT LINK]</span></li>
+                <li>Batch schedule <span className="font-mono text-xs opacity-60">[INSERT LINK]</span></li>
+                <li>Project portfolio <span className="font-mono text-xs opacity-60">[INSERT LINK]</span></li>
+                <li>Blog · FAQs <span className="font-mono text-xs opacity-60">[INSERT LINK]</span></li>
+              </ul>
+            </div>
+            <div>
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] opacity-70">Contact</p>
+              <ul className="mt-3 space-y-1.5 opacity-85">
+                <li>[EMAIL]</li>
+                <li>[PHONE]</li>
+                <li>WhatsApp: [WHATSAPP]</li>
+              </ul>
+              <p className="mt-4 text-[0.7rem] font-semibold uppercase tracking-[0.18em] opacity-70">Social</p>
+              <p className="mt-2 opacity-85">LinkedIn · YouTube · Instagram · X · GitHub</p>
+            </div>
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-x-5 gap-y-2 border-t border-white/15 pt-5 text-xs opacity-70">
+            <span>Privacy Policy</span>
+            <span>Terms</span>
+            <span>Refund Policy</span>
             <span>Batches: [INSERT: batch date]</span>
             <span>Fees: ₹XX,XXX [VERIFY]</span>
           </div>
-          <p className="mt-6 text-xs opacity-60">
-            © {new Date().getFullYear()} LogicMojo. This guide is published by LogicMojo. Fees,
-            curricula and hiring data change; verify current details on each provider's official
-            page before enrolling. No course, including ours, can guarantee a job or a salary.
+          <p className="mt-4 text-xs opacity-60">
+            © {new Date().getFullYear()} LogicMojo. This guide is published by LogicMojo — a
+            commercial relationship disclosed at the top of the page. Fees, curricula and hiring data
+            change; verify current details on each provider&apos;s official page before enrolling. No
+            course, including ours, can guarantee a job or a salary.
           </p>
         </div>
       </footer>
+
+      <MobileCta />
+      <StickyDesktopCta />
     </div>
   );
 }
+
