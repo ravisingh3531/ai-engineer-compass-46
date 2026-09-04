@@ -72,8 +72,12 @@ const toc: { id: string; label: string }[] = [
   { id: "what-ai-engineers-do", label: "What an AI Engineer actually does in India" },
   { id: "skill-stack", label: "The 2026 AI Engineer skill stack" },
   { id: "roadmap", label: "The 12-month AI Engineer roadmap" },
+  { id: "how-to-choose", label: "How to choose the right course as a beginner" },
+  { id: "beyond-marketing", label: "What to look for beyond the marketing" },
   { id: "at-a-glance", label: "Top 10 courses at a glance (6 tables)" },
   { id: "reviews", label: "In-depth reviews of all 10 courses" },
+  { id: "beginner-matrix", label: "Beginner scorecard — 22 dimensions × 10 courses" },
+  { id: "experience-solution", label: "My experience-based solution for beginners" },
   { id: "logicmojo-deep-dive", label: "Why LogicMojo ranks #1 — deep dive" },
   { id: "honorable-mentions", label: "Also considered — 10 options and why" },
   { id: "quiz", label: "AI Course Finder Quiz (8 questions)" },
@@ -85,7 +89,7 @@ const toc: { id: string; label: string }[] = [
   { id: "red-flags", label: "Red flags before you pay" },
   { id: "author", label: "About the author" },
   { id: "reviewers", label: "Expert reviewers" },
-  { id: "faqs", label: "35 frequently asked questions" },
+  { id: "faqs", label: "41 frequently asked questions" },
   { id: "verdict", label: "Final verdict" },
   { id: "links", label: "Related guides and link map" },
 ];
@@ -219,7 +223,7 @@ function Article() {
               <span aria-hidden>·</span>
               <span>Last updated: [INSERT DATE]</span>
               <span aria-hidden>·</span>
-              <span>10 courses · 8 comparison tables · 35 FAQs</span>
+              <span>10 courses · 9 comparison tables · 41 FAQs</span>
             </div>
             <p className="mt-3 text-sm text-muted-foreground">
               This guide is published by LogicMojo; the ranking methodology and scoring criteria are
@@ -1241,14 +1245,16 @@ function Article() {
           title="AI Course Finder Quiz — Which Course Fits Your Path to AI Engineer?"
         >
           <p>
-            Eight single-select questions on background, current level, goal, budget, weekly hours,
-            learning style, priority and timeline. The output is one primary recommendation with a
-            one-line reason and, where useful, a secondary suggestion. No email gate, no lead form.
+            Eight single-select questions on experience level, education, career goal, budget, how
+            much placement support matters, learning mode, weekly hours, and whether you need Python
+            and ML taught from scratch. The result opens in a pop-up with the best-fit course, why it
+            fits you, its key modules, its placement position and a direct link. No email gate, no
+            lead form, nothing stored.
           </p>
           <Callout label="Output logic, stated explicitly" tone="muted">
             <ul className="mt-1">
-              <li>Deep skills + 10+ hrs/week + ₹15K–₹1.5L + live or mixed → <strong>LogicMojo</strong></li>
-              <li>Placement infrastructure + ₹1.5L+ + 15+ hrs → <strong>Scaler</strong> (LogicMojo secondary)</li>
+              <li>Beginner + needs Python/ML foundations + placement support matters → <strong>LogicMojo</strong></li>
+              <li>Working developer + placement infrastructure is the top priority + ₹80K+ → <strong>Scaler</strong></li>
               <li>University credential + career switch → <strong>upGrad</strong> or <strong>Great Learning</strong></li>
               <li>Employer-funded credential → <strong>Simplilearn</strong></li>
               <li>IIT tag at mid-price → <strong>Intellipaat</strong></li>
