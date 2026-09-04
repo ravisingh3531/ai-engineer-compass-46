@@ -1020,13 +1020,13 @@ function Article() {
           <div className="mt-6 flex flex-wrap gap-3">
             <a
               href="https://logicmojo.com/artificial-intelligence-machine-learning-course"
-              className="rounded-md bg-ink px-5 py-2.5 text-sm font-semibold text-ink-foreground no-underline"
+              className="rounded-xl bg-gradient-to-r from-primary to-accent px-5 py-2.5 text-sm font-semibold text-primary-foreground no-underline shadow-editorial transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-glow"
             >
               Explore the LogicMojo AI &amp; ML Course
             </a>
             <a
               href="#quiz"
-              className="rounded-md border border-border bg-card px-5 py-2.5 text-sm font-semibold no-underline"
+              className="lift-hover rounded-xl border border-accent/35 bg-card px-5 py-2.5 text-sm font-semibold text-primary no-underline"
             >
               Take the course finder quiz
             </a>
@@ -1035,7 +1035,8 @@ function Article() {
 
         {/* AUTHOR */}
         <Section id="author" eyebrow="Section 16" title="About the Author and Expert Reviewers">
-          <div className="rounded-lg border border-border bg-card p-5 shadow-editorial">
+          <div className="glass-card lift-hover p-5">
+
             <p className="eyebrow">Author</p>
             <p className="mt-1 text-lg font-semibold">[INSERT: Author name], AI curriculum analyst</p>
             <p className="mt-2 text-sm text-muted-foreground">
