@@ -1,138 +1,172 @@
-export const faqs: { q: string; a: string }[] = [
+export type Faq = { q: string; a: string };
+export type FaqGroup = { cluster: string; items: Faq[] };
+
+export const faqGroups: FaqGroup[] = [
   {
-    q: "How do I become an AI Engineer in India in 2026?",
-    a: "One sequence, in order: Python and data foundations, maths intuition, classical ML with real evaluation, deep learning and transformers, then the GenAI layer (LLMs, embeddings, production RAG, LangChain/LangGraph, fine-tuning, agents), then deployment and monitoring. Build 8–15 defensible projects along the way and rehearse explaining them. With 10–12 hours a week alongside a job, that is roughly 12 months; 6 for experienced developers, 15–18 for non-tech switchers.",
+    cluster: "Becoming an AI Engineer",
+    items: [
+      {
+        q: "How do I become an AI Engineer in India in 2026?",
+        a: "Follow one continuous sequence and finish it. Python and data foundations, maths intuition, classical ML with honest evaluation, deep learning and transformers, then the GenAI layer — LLM APIs, embeddings and vector databases, production RAG, LangChain/LangGraph, fine-tuning, agents — and finally MLOps and deployment. Build 8–15 escalating projects along the way, deploy at least three, and write READMEs that explain your decisions. At 10–12 hours a week alongside a job, that is roughly 12 months: nearer 6–9 for working developers, 12–18 for non-technical switchers.",
+      },
+      {
+        q: "What does an AI Engineer actually do day to day?",
+        a: "Far less model training than people expect. A typical week is designing and tuning retrieval pipelines, writing evaluation sets, wiring LLM calls into existing services with structured outputs and error handling, arguing about latency and cost per request, adding guardrails, debugging why quality dropped after a model version change, and shipping through Docker and CI. It is software engineering with probabilistic components — which is why engineering hygiene, not just ML theory, decides who gets hired.",
+      },
+      {
+        q: "AI Engineer vs. ML Engineer vs. Data Scientist — what is the difference?",
+        a: "A Data Scientist turns data into decisions and communicates with stakeholders. An ML Engineer trains, optimises and productionises models, and owns training infrastructure. An AI Engineer builds end-to-end AI systems — increasingly LLM-based — and owns integration, evaluation, guardrails and deployment. In Indian job descriptions these titles blur constantly, so read the requirements section rather than the title. If it mentions RAG, agents, vector databases and deployment, it is an AI Engineer role whatever it is called.",
+      },
+      {
+        q: "Can I become an AI Engineer without a computer science degree?",
+        a: "Yes, and a large share of practising AI Engineers in India did not study CS. What blocks non-CS candidates is rarely the theory; it is software engineering hygiene — version control, testing, APIs, containers, deployment. Close that gap and a defended portfolio outperforms a degree in most private-sector interviews. Two caveats: some GCCs and MNCs still apply degree filters at the HR stage, and that is exactly where a university-affiliated credential such as upGrad's IIIT-Bangalore program earns its price.",
+      },
+      {
+        q: "Do I need to be good at maths?",
+        a: "You need intuition, not a research-grade background. Concretely: linear algebra to the level of matrices and dot products, calculus to the level of what a gradient means, probability and statistics to the level of distributions, sampling and significance. That is enough to read a loss function, reason about evaluation and follow a paper's notation. Applied Scientist and research roles are the exception — those genuinely require depth, and usually a master's or PhD. For AI Engineering, maths is a tool, not a gate.",
+      },
+      {
+        q: "How long does it realistically take?",
+        a: "Indicative ranges, assuming consistent weekly hours rather than bursts: working software developer 6–9 months; data analyst or data engineer 9–12 months; DevOps or cloud engineer 6–10 months; QA or non-coding IT 12–15 months; non-technical switcher 12–18 months; final-year student 9–12 months. The variable that moves these numbers most is not intelligence or budget — it is consistency. Ten focused hours a week for twelve months beats thirty hours a week for six weeks followed by silence.",
+      },
+      {
+        q: "Can a fresher become an AI Engineer?",
+        a: "Yes, though the first role is harder to land than the second. Freshers compete without production experience, so the portfolio has to carry the interview: deployed projects, evaluation harnesses, honest READMEs. Internships, open-source contributions and Kaggle work all substitute for experience. Be flexible about the entry title — data analyst, ML intern, backend engineer on an AI team — because moving internally into AI work after twelve months is materially easier than breaking in directly from outside.",
+      },
+      {
+        q: "Can a non-IT graduate (mechanical, commerce, biology) do this?",
+        a: "Yes, and domain knowledge is often an advantage later — insurance, healthcare and manufacturing all hire AI Engineers who understand the domain. Plan for a longer runway, typically 12–18 months, and refuse to skip Layers 1 and 2. The failure mode for non-IT switchers is jumping to LLM tutorials because they are fun, then collapsing in an interview on evaluation, debugging or deployment. Build programming and ML foundations properly and the GenAI layer becomes straightforward.",
+      },
+      {
+        q: "Is it too late to start in 2026?",
+        a: "No. The tooling turns over roughly every six months, which means the field keeps resetting the expertise clock — someone who started in 2023 has no advantage on MCP, agent frameworks or current evaluation practice. What compounds is engineering judgement, not tool familiarity. Meanwhile the demand side has broadened from a handful of AI-native startups to GCCs, enterprises and IT-services AI practices. Starting late is normal; starting without a sequence is the actual risk.",
+      },
+    ],
   },
   {
-    q: "Which course is best to become an AI Engineer?",
-    a: "On the six criteria used here, LogicMojo's AI & Machine Learning Course ranks first for aspiring AI Engineers because it runs the full sequence — foundations through GenAI, agents and deployment — live, in IST, with project review. Scaler is the pick if you are buying placement infrastructure, upGrad or Great Learning if you need a university credential, and DeepLearning.AI or IBM if cost is the binding constraint.",
+    cluster: "Skills and curriculum",
+    items: [
+      {
+        q: "What skills does an AI Engineer need in 2026?",
+        a: "Python and SQL; ML foundations with genuine evaluation rigour; deep learning and transformers in PyTorch; LLM fundamentals including prompting, structured outputs, embeddings and vector databases; production RAG with chunking, hybrid retrieval, re-ranking and citations; orchestration with LangChain or LangGraph; fine-tuning with LoRA/QLoRA and the decision framework around it; agents with tool use, memory, failure handling and cost control; LLM evaluation and guardrails; and MLOps/LLMOps — Docker, FastAPI, CI/CD, monitoring, drift, latency and spend.",
+      },
+      {
+        q: "Is GenAI enough, or do I still need classical ML?",
+        a: "You need both, and the interview will prove it. GenAI is what most 2026 roles ship, but the questions that separate candidates are classical: why that metric, how you handled imbalance, whether your split leaked, how you know the model beats a baseline. Evaluation discipline transfers directly from classical ML to LLM systems — the people who build good eval sets for RAG are the people who understood precision and recall first. A GenAI-only learner hits a ceiling in round two.",
+      },
+      {
+        q: "Should I learn RAG or fine-tuning first?",
+        a: "RAG first, without exception. It solves more real problems, costs less, ships faster and is asked about in far more interviews. Fine-tuning is the right answer for format, tone, latency or a narrow high-volume task — not for teaching a model new facts, which is the mistake most beginners make. Learn the decision framework properly: try prompting, then RAG, then fine-tuning, and be able to explain the cost, latency and maintenance implications of each choice.",
+      },
+      {
+        q: "Is LangChain still worth learning in 2026?",
+        a: "Yes, with judgement. LangChain and LangGraph appear across Indian job descriptions and give you vocabulary for state, retries, tracing and multi-step workflows. Learn the underlying patterns rather than the API surface: what a retriever is, how state moves through a graph, where observability hooks in. Then be able to say when a plain function and an HTTP client are the better answer — that sentence in an interview signals engineering maturity more than any framework fluency.",
+      },
+      {
+        q: "What are AI agents and why do they matter for jobs?",
+        a: "An agent is an LLM that plans, calls tools, keeps memory and iterates until a task is done. They matter for hiring because they are where 2026 budgets are moving — support automation, internal workflow, research assistants — and because they are hard. Building the happy path takes an afternoon; handling tool timeouts, malformed output, plan loops, context overflow and runaway spend takes real engineering. Candidates who can name their agent's failure modes and the guards they shipped stand out immediately.",
+      },
+      {
+        q: "Do I really need MLOps?",
+        a: "For AI Engineer roles, yes — it is the widest gap between a trained model and an offer. You do not need to be a platform engineer, but you must be able to containerise a service, serve it behind FastAPI, add health checks and structured logging, run it through CI, monitor latency and cost, and describe a rollback. \"How would you serve this to 10,000 users?\" is a standard question, and candidates who have deployed their own capstone answer it from memory rather than theory.",
+      },
+      {
+        q: "PyTorch or TensorFlow?",
+        a: "PyTorch, for research alignment, the Hugging Face ecosystem and the overwhelming majority of current job descriptions. TensorFlow and Keras still exist in enterprise codebases, and some courses — Simplilearn and parts of the IBM track — teach them first, which is not disqualifying. If you learn one framework properly, the other takes a weekend. Do not let framework choice become the reason you delay starting; let it be PyTorch and move on to the parts that are actually hard.",
+      },
+      {
+        q: "Will these skills be obsolete in two years?",
+        a: "Some will. Specific frameworks, specific model families and specific prompting tricks turn over quickly. What does not turn over: evaluation, retrieval reasoning, system design, cost and latency thinking, debugging, and the software engineering underneath. Choose a course that teaches those as first-class subjects rather than teaching a tour of this quarter's tools, and check that the provider refreshes its curriculum — refresh cadence is a delivery feature in AI, not an editorial nicety.",
+      },
+      {
+        q: "What should a 2026 AI Engineer curriculum include?",
+        a: "Audit any syllabus against seven layers: (1) programming and data, (2) maths intuition, (3) classical ML with evaluation, (4) deep learning and transformers, (5) the GenAI stack — LLMs, embeddings, production RAG, orchestration, fine-tuning, agents, MCP, open-weight models, evaluation and guardrails, (6) MLOps/LLMOps and deployment, (7) system design, portfolio and interview preparation. Missing layer 5 depth or layer 6 entirely is the most common failure in Indian programs, and both are testable in interviews.",
+      },
+    ],
   },
   {
-    q: "What skills does an AI Engineer need?",
-    a: "Python and SQL; ML foundations with evaluation rigour; deep learning and transformers; LLM fundamentals, prompting, embeddings and vector databases; production RAG including chunking, hybrid search and re-ranking; LangChain/LangGraph; fine-tuning with LoRA/QLoRA; agents with tool use, memory and failure handling; LLM evaluation and guardrails; and MLOps/LLMOps — Docker, FastAPI, CI/CD, monitoring, cost and latency control.",
+    cluster: "Choosing a course",
+    items: [
+      {
+        q: "Which is the best course to become an AI Engineer in India?",
+        a: "On the weighting used in this article — AI Engineer capability gained per rupee and per hour, in a format a working Indian learner can complete — LogicMojo's AI & Machine Learning Course ranks first, because it runs the full seven-layer sequence including production RAG, agents, MCP and deployment, live in IST, with human code review. Weight differently and the answer changes honestly: Scaler for placement infrastructure, upGrad or Great Learning for a university credential, DeepLearning.AI or IBM if cost is the binding constraint.",
+      },
+      {
+        q: "Live cohort or self-paced — which is better?",
+        a: "It depends on one thing: your track record. If you have finished self-paced courses before, self-paced is cheaper, more flexible and perfectly sufficient. If you have started and stopped before — which describes most people — the fixed schedule, cohort and someone noticing your absence are the product, not the content. Be honest with yourself rather than aspirational; the most expensive course is the one you abandon in month three while the EMI continues.",
+      },
+      {
+        q: "Short certification or long PG program?",
+        a: "Short certifications are excellent top-ups on a specific skill and near-worthless as a standalone route into the role. Long PG programs buy structure, a credential and a cohort, but often at 3–5× the price of an equally current specialist curriculum. The middle band — a focused 6–10 month program covering all seven layers with live delivery — is where capability per rupee peaks for most working learners. Choose length by depth required, not by prestige.",
+      },
+      {
+        q: "University brand or curriculum depth?",
+        a: "Ask what the brand is buying. If you need an institutional credential for a visa, an HR degree filter or a promotion committee, brand has genuine, defensible value that no bootcamp certificate replicates. If you are being interviewed by an engineering panel that will ask about chunking strategy and agent failure modes, curriculum depth wins every time. Also clarify precisely what \"in association with\" means: who designs the syllabus, who teaches your batch and who issues the certificate.",
+      },
+      {
+        q: "How do I know a curriculum is actually current?",
+        a: "Search the syllabus PDF for five terms: RAG, LoRA or QLoRA, agents, MCP, and either MLflow or monitoring. Then check for a last-updated date, and ask what changed in the most recent revision. Map hours per module rather than counting module titles — 70% classical ML with a GenAI cover slide is the most common disguise. Finally, ask which model providers and libraries are used in demonstrations; a 2023 library set is a reliable tell.",
+      },
+      {
+        q: "How do I verify placement claims?",
+        a: "Ask three questions in writing: out of how many enrolled learners, over what window, and in what roles at what compensation. A percentage without a denominator is not data. Ask whether \"placed\" includes internal promotions, contract roles and unrelated positions. Then ask for three alumni you select yourself from LinkedIn rather than a hand-picked list. How a provider responds to that email tells you more than any review aggregator, and no honest provider is offended by it.",
+      },
+      {
+        q: "Can I learn AI while working full time?",
+        a: "Yes — most people on this path do. The realistic pattern is 8–12 hours a week: two weekday evenings of 90 minutes and one longer weekend block, protected in your calendar like a meeting you cannot move. Choose IST-timed live sessions with recordings, because a program aligned to US timings will quietly defeat you. Expect two or three bad weeks during releases or appraisals, and pick a provider with a batch-deferral policy so those weeks do not end the attempt.",
+      },
+    ],
   },
   {
-    q: "AI Engineer vs ML Engineer vs Data Scientist — what's the difference?",
-    a: "A Data Scientist turns data into decisions. An ML Engineer trains and productionises models. An AI Engineer builds end-to-end AI systems — increasingly LLM-based — and owns evaluation, integration and deployment. In practice Indian job descriptions blur all three; read the requirements, not the title.",
+    cluster: "Fees, EMI and ROI",
+    items: [
+      {
+        q: "How much does an AI Engineer course cost in India?",
+        a: "The market spans six bands: ₹0 for MOOCs and documentation; ₹500–₹5,000 for single courses; ₹5,000–₹40,000 for affordability-first bootcamps; ₹40,000–₹1,20,000 for specialist live programs; ₹1,20,000–₹2,50,000 for university-affiliated PG programs; and ₹2,50,000+ for premium bootcamps and executive programs. Capability per rupee tends to peak in the ₹40K–₹1.2L band, because above it you are usually buying brand, placement infrastructure or an academic credential rather than a higher capability ceiling.",
+      },
+      {
+        q: "Are expensive courses better?",
+        a: "Not on curriculum depth, which is the finding that surprises most readers. Several ₹2L+ programs cover less of the 2026 stack than specialist programs at a third of the price, because university refresh cycles are slower than the field. What premium pricing genuinely buys is brand recognition, placement infrastructure, alumni networks and academic credentials — all legitimate purchases, provided you recognise which one you are making and do not mistake it for a deeper syllabus.",
+      },
+      {
+        q: "Is no-cost EMI really free?",
+        a: "Sometimes, and sometimes the interest is embedded in a higher listed price, or subvented for the first few months only. Ask for three things in writing: the lender's name, the total amount payable across the full tenure, and the processing fee. Compare that total against the upfront price. Also confirm what happens to the loan if you defer a batch or drop out — in almost every case the loan continues regardless of whether you are attending.",
+      },
+      {
+        q: "What happens to my EMI if I stop attending?",
+        a: "It continues. This is the single most under-discussed fact in Indian EdTech: the loan is a contract with a lender, not with your motivation. Dropping out at month three of a ₹2,00,000 program typically leaves you with 21 to 33 months of remaining payments, two notebook projects and no salary change. This is why completion probability — format, timing, accountability, deferral policy — belongs in the purchase decision alongside curriculum and price.",
+      },
+      {
+        q: "Are there genuinely good free AI Engineer courses?",
+        a: "Yes: DeepLearning.AI to audit, Fast.ai, the Hugging Face NLP and Agents courses, Kaggle Learn, NPTEL, and the official PyTorch, LangChain and LangGraph documentation. Together they cover almost every topic a paid program teaches, often better. What they cannot supply is sequence, human code review, accountability, doubt resolution at 11pm, portfolio design and interview defence. Spend eight weeks free first: if you finish, keep going free; if you stall, you have learned what you are buying.",
+      },
+    ],
   },
   {
-    q: "Can I become an AI Engineer without a CS degree?",
-    a: "Yes, and many do. What blocks non-CS candidates is not the degree but the missing software-engineering hygiene: version control, testing, APIs, deployment. Fix that and a defended portfolio outranks a degree in most private-sector interviews. Some GCC and MNC HR filters still screen on degree; that is where a university-affiliated credential has real value.",
-  },
-  {
-    q: "Do I need maths to be an AI Engineer?",
-    a: "You need intuition, not a research-grade background. Linear algebra to reason about embeddings and matrices, calculus enough to understand gradients, probability and statistics to interpret evaluation. If you can explain why your model overfits and why your metric is the right one, you have enough.",
-  },
-  {
-    q: "How long does it take to become an AI Engineer?",
-    a: "At 10–12 hours a week: about 12 months from zero, 6–8 months for a working developer, and 15–18 months for a non-tech switcher who also needs Python and maths onboarding. Anyone selling 90 days is selling Level 1.",
-  },
-  {
-    q: "What is the salary of an AI Engineer in India?",
-    a: "Directionally, ₹6L–₹12L at 0–2 years, ₹12L–₹25L at 2–5 years, and ₹25L–₹45L at 5+ years, with product companies and GCCs paying materially above services firms. Treat every specific figure as a range to verify against current postings.",
-  },
-  {
-    q: "Is GenAI alone enough to become an AI Engineer?",
-    a: "No. GenAI-only learners can demo but cannot debug. The moment an interviewer asks why retrieval quality collapsed, why the fine-tune degraded the base model, or what your latency budget is, the missing ML foundations show.",
-  },
-  {
-    q: "Which projects should an AI Engineer have on GitHub?",
-    a: "Five that matter: an end-to-end ML project with a written evaluation rationale; a production-style RAG system with an evaluation harness and citations; a fine-tuned open-weight model benchmarked against its base; a tool-using agent that handles tool failures; and one deployed service with monitoring. Depth over count.",
-  },
-  {
-    q: "What do AI Engineer interviews in India actually test?",
-    a: "Python and data manipulation; ML fundamentals and metric choice; transformer intuition; LLM system design (chunking, retrieval, re-ranking, evaluation); agent design and failure handling; deployment, cost and latency; and a deep, adversarial walk through one of your projects.",
-  },
-  {
-    q: "Is LangChain worth learning in 2026?",
-    a: "Yes, as a vocabulary and an orchestration option — LangGraph in particular for stateful agent flows. But learn the underlying pattern first; teams routinely drop the framework and keep the architecture, and interviewers probe the architecture.",
-  },
-  {
-    q: "Should I learn RAG or fine-tuning first?",
-    a: "RAG. It solves more real problems, costs less, and is what most Indian job descriptions list. Learn fine-tuning next so you can explain when adaptation beats retrieval — that comparison is a common interview question.",
-  },
-  {
-    q: "Are AI agents a real job skill?",
-    a: "Yes. Agentic systems moved into production through 2025–2026, and postings now ask for planning, tool use, memory and failure handling. What is not a job skill is wiring a framework demo you cannot debug.",
-  },
-  {
-    q: "Can a fresher become an AI Engineer?",
-    a: "It is harder than at 2–5 years because entry-level competition is intense, but yes — via a strong portfolio, internships, and often an adjacent first role (data engineering, backend, ML support) that you convert internally within a year.",
-  },
-  {
-    q: "Is a ₹1L–₹4L program justified when free content exists?",
-    a: "Only if it buys you three things free content cannot: sequence, review and accountability. Compute the expected cost as fee divided by your honest probability of finishing. A ₹0 course you abandon costs more than a ₹60,000 course you complete.",
-  },
-  {
-    q: "What is a realistic weekly commitment while working full-time?",
-    a: "8–15 hours. Below 6, stretch the timeline rather than shortening the syllabus. Protect two weekday evenings and one weekend block, and treat them as meetings you cannot move.",
-  },
-  {
-    q: "Do certificates matter to Indian AI hiring managers?",
-    a: "Mostly as a screening signal, and mostly at HR stage. Once you reach the technical round, nobody has ever extended an offer because of a certificate. They extend it because you defended a system you built.",
-  },
-  {
-    q: "What is RAG, in one paragraph?",
-    a: "Retrieval-Augmented Generation: you convert documents into numerical representations (embeddings), store them in a vector database, retrieve the most relevant chunks for a user's question, and pass them to the LLM as context so it answers from your data instead of guessing. Production RAG is mostly about chunking strategy, hybrid search, re-ranking, citations and evaluation — not the retrieval call itself.",
-  },
-  {
-    q: "What are LoRA and QLoRA?",
-    a: "Parameter-efficient fine-tuning methods. LoRA trains small adapter matrices instead of the full model; QLoRA does the same on a quantised model so it fits on modest GPUs. Both let you adapt an open-weight model on hardware you can actually rent in India.",
-  },
-  {
-    q: "What is MCP and do I need it?",
-    a: "Model Context Protocol standardises how models connect to tools and data sources. You do not need it to get hired, but knowing why a standard tool interface beats bespoke glue is a strong senior-sounding answer.",
-  },
-  {
-    q: "What is LLMOps and how is it different from MLOps?",
-    a: "MLOps covers training, deployment, monitoring and drift for models you train. LLMOps adds the concerns specific to LLM systems: prompt versioning, evaluation pipelines, tracing, caching, token cost control, latency budgets and guardrails. In 2026 hiring they are increasingly one job.",
-  },
-  {
-    q: "Which cloud should I learn — AWS, Azure or GCP?",
-    a: "The one your target employers use. Indian GCCs skew AWS and Azure; several product companies are GCP-heavy. Learn deployment patterns deeply on one and the transfer is straightforward.",
-  },
-  {
-    q: "Do I need a GPU at home?",
-    a: "No. Colab, Kaggle kernels and hourly cloud GPUs cover everything in this roadmap, including QLoRA fine-tunes. Budget ₹2,000–₹6,000 in compute and API credits across a full program.",
-  },
-  {
-    q: "Are placement guarantees real?",
-    a: "Treat any guarantee as a marketing instrument with an eligibility clause. Ask for the denominator (enrolled or eligible), the time window, median rather than average salary, whether roles were AI-specific, and for unfiltered alumni contacts.",
-  },
-  {
-    q: "What are the red flags in an AI course landing page?",
-    a: "Countdown timers, '100% placement', a syllabus PDF that is not public, GenAI as three closing sessions, no deployment module, 'live' classes that turn out to be recordings, no named instructors, refund terms only shared after payment, and salary screenshots with no context.",
-  },
-  {
-    q: "Can I switch to AI Engineering from QA or DevOps?",
-    a: "Yes, and you start with an advantage: LLMOps-heavy AI Engineer roles want exactly your CI/CD, containerisation and observability instincts. Fill the modelling gap and market the infrastructure strength.",
-  },
-  {
-    q: "Is an AI Engineer role available remotely from a Tier-2 city?",
-    a: "Increasingly yes, especially with startups and some GCC teams, but hybrid expectations are rising. A deployed portfolio and clear written communication matter more when you are not in the room.",
-  },
-  {
-    q: "How many projects do I need before applying?",
-    a: "Three excellent, deployed, defensible ones beat ten notebooks. Start applying once you have a RAG system with evaluation, a deployed service, and one model you trained or fine-tuned yourself.",
-  },
-  {
-    q: "What should my GitHub README contain?",
-    a: "The problem, the architecture diagram, the decisions and why you made them, the evaluation results with numbers, known limitations, and how to run it. Interviewers read the decisions section.",
-  },
-  {
-    q: "Should I do a course while job hunting, or finish first?",
-    a: "Finish the RAG, fine-tuning and deployment modules first — those are what interviews test. Start applying during the final month while your project narratives are freshest.",
-  },
-  {
-    q: "What if I have already paid for a course I abandoned?",
-    a: "Check whether the provider allows batch deferral before writing it off; most do. Then diagnose the actual failure — usually no accountability, no code review, or a schedule that ignored your work life — and choose the next program on that criterion rather than on syllabus length.",
-  },
-  {
-    q: "Is the IndiaAI Mission relevant to my job prospects?",
-    a: "Indirectly. Public compute and skilling initiatives expand the ecosystem and government-adjacent demand. It does not change what an interviewer asks you about re-ranking.",
-  },
-  {
-    q: "Will AI Engineering still be hiring in three years?",
-    a: "The title will drift — it already has, from 'ML Engineer' to 'AI Engineer' to 'agent engineer' in some postings. The underlying capability, building and operating systems that use models reliably and affordably, is the durable part. Learn the capability, not the title.",
+    cluster: "Jobs, salaries and interviews",
+    items: [
+      {
+        q: "What is an AI Engineer's salary in India?",
+        a: "Indicative ranges only, and they vary by city, employer type, experience and negotiation: fresher roughly ₹6–14 LPA, 2–5 years roughly ₹14–32 LPA, and 5+ years ₹30–60 LPA or above at product companies and GCCs [VERIFY: current market data]. IT-services compensation typically sits below these bands and AI-native startups vary widely with equity. What moves your number most is production ownership, system-design reasoning, a deployed portfolio and domain knowledge — not the certificate on your profile.",
+      },
+      {
+        q: "Can I get an AI job after an online course?",
+        a: "Yes, and thousands do each year — but the offer comes from the portfolio and the interview, not the certificate. The pattern that works is: complete the sequence, deploy three substantial projects, write READMEs that explain your decisions, rehearse defending them out loud, then apply consistently for three to four months while continuing to build. Candidates who treat the course completion date as the finish line rather than the starting gun are the ones who report that \"online courses don't work\".",
+      },
+      {
+        q: "How many portfolio projects do I need?",
+        a: "Three excellent projects beat ten shallow ones, every time. Interviewers do not count repositories; they pick one and dig until they find the bottom of your understanding. Aim for a production-style RAG system with an evaluation harness, a deployed service with monitoring, and one project that shows classical ML rigour — plus a self-designed capstone if you have time. Delete or clearly archive tutorial clones; a Titanic notebook on a profile reads as \"did tutorials\".",
+      },
+      {
+        q: "Do employers value online certificates?",
+        a: "As a signal of effort, mildly. As evidence of capability, almost not at all — with two exceptions. University-issued credentials pass HR degree filters at some GCCs and MNCs, and cloud vendor certifications carry real weight for MLOps-leaning roles on that platform. Everywhere else, the certificate gets you no further than the recruiter screen. What survives round two is a deployed system you can explain, defend and criticise yourself.",
+      },
+      {
+        q: "What do AI Engineer interviews in India actually ask?",
+        a: "A typical 2026 loop runs five rounds: recruiter screening, technical fundamentals (Python, ML rigour, evaluation, sometimes light DSA), a project deep dive, an AI system-design round, and a hiring-manager conversation. Recurring questions include designing RAG for 50,000 internal documents, reducing hallucination, choosing between prompting, RAG and fine-tuning, evaluating an LLM app without ground truth, agent failure modes and cost control, and — the one that decides most loops — what you got wrong in your own project.",
+      },
+    ],
   },
 ];
+
+export const faqs: Faq[] = faqGroups.flatMap((g) => g.items);
