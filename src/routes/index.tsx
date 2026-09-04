@@ -12,13 +12,36 @@ import {
   shortNames,
   teachingScorecard,
 } from "@/data/tables";
-import { faqs } from "@/data/faqs";
-import { Callout, DataTable, H3, Quote, Section, StatCard } from "@/components/article/primitives";
+import { faqs, faqGroups } from "@/data/faqs";
+import { logicMojoModules, visualTwo, priceBands, fiveQuestions, projectLadder } from "@/data/deepdive";
+import {
+  alsoConsidered,
+  archetypes,
+  readmeOutline,
+  defenceChecklist,
+  interviewRounds,
+  interviewQuestions,
+  fourWeekPlan,
+  roleSalaryTable,
+  employerTypes,
+  transitionTimelines,
+  freeStack,
+  freeCannotGive,
+  roiScenarios,
+  redFlags,
+  salesCallRules,
+  internalLinks,
+  externalLinks,
+} from "@/data/extras";
+import { Callout, DataTable, H3, NoteCard, Quote, Section, StatCard, Verify } from "@/components/article/primitives";
 import { Reveal, ScrollProgress } from "@/components/article/Reveal";
 import { CourseReview } from "@/components/article/CourseReview";
 import { SkillChecklist } from "@/components/article/SkillChecklist";
 import { CourseFinderQuiz } from "@/components/article/CourseFinderQuiz";
+import { ReviewerCarousel } from "@/components/article/ReviewerCarousel";
+import { MobileCta, StickyDesktopCta } from "@/components/article/MobileCta";
 import { Faq } from "@/components/article/Faq";
+
 
 const TITLE = "Top 10 AI Courses in India to Become an AI Engineer (2026)";
 const DESCRIPTION =
