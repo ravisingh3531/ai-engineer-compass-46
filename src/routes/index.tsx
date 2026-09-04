@@ -311,22 +311,30 @@ function Article() {
         />
 
         {/* TOC */}
-        <nav
-          id="toc"
-          aria-label="Table of contents"
-          className="mt-12 rounded-lg border border-border bg-surface p-5"
+        <Reveal
+          as="section"
+          className="mt-12 rounded-2xl border border-accent/20 bg-gradient-to-br from-secondary via-card to-highlight p-6 shadow-editorial"
         >
-          <p className="eyebrow">On this page</p>
-          <ol className="mt-3 grid gap-x-8 gap-y-1.5 text-sm sm:grid-cols-2">
-            {toc.map((t, i) => (
-              <li key={t.id}>
-                <a className="underline decoration-accent underline-offset-4" href={`#${t.id}`}>
-                  {String(i + 1).padStart(2, "0")}. {t.label}
-                </a>
-              </li>
-            ))}
-          </ol>
-        </nav>
+          <nav id="toc" aria-label="Table of contents" className="scroll-mt-24">
+            <p className="eyebrow">On this page</p>
+            <ol className="mt-4 grid gap-3 text-sm sm:grid-cols-2">
+              {toc.map((t, i) => (
+                <li key={t.id}>
+                  <a
+                    className="lift-hover flex items-start gap-3 rounded-xl border border-border/70 bg-card/80 px-3 py-2.5 no-underline"
+                    href={`#${t.id}`}
+                  >
+                    <span className="font-mono text-xs text-accent">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="font-medium">{t.label}</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        </Reveal>
+
 
         {/* SECTION 3 */}
         <Section id="what-ai-engineers-do" eyebrow="Section 1" title="What an AI Engineer Actually Does in India (2026)">
