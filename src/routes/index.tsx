@@ -12,7 +12,7 @@ import {
   shortNames,
   teachingScorecard,
 } from "@/data/tables";
-import { faqs, faqGroups } from "@/data/faqs";
+import { faqs } from "@/data/faqs";
 import { logicMojoModules, visualTwo, priceBands, fiveQuestions, projectLadder } from "@/data/deepdive";
 import {
   alsoConsidered,
@@ -209,11 +209,11 @@ function Article() {
 
           <Reveal delay={80}>
             <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
-              <span>38 min read</span>
+              <span>45 min read</span>
               <span aria-hidden>·</span>
               <span>Last updated: [INSERT DATE]</span>
               <span aria-hidden>·</span>
-              <span>10 courses · 6 comparison tables · 34 FAQs</span>
+              <span>10 courses · 8 comparison tables · 35 FAQs</span>
             </div>
             <p className="mt-3 text-sm text-muted-foreground">
               This guide is published by LogicMojo; the ranking methodology and scoring criteria are
