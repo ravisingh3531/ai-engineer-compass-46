@@ -72,38 +72,74 @@ function Article() {
   return (
     <div className="min-h-screen bg-background">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <ScrollProgress />
 
-      <header className="border-b border-border bg-ink text-ink-foreground">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-5 py-4">
-          <span className="font-display text-xl">LogicMojo</span>
-          <span className="eyebrow opacity-70">AI Engineer Guides</span>
+      <header className="sticky top-0 z-40 border-b border-border/70 bg-background/80 backdrop-blur-md">
+        <div className="mx-auto flex max-w-5xl items-center justify-between px-5 py-3.5">
+          <span className="flex items-center gap-2 font-display text-xl text-primary">
+            <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent text-sm font-semibold text-primary-foreground">
+              L
+            </span>
+            LogicMojo
+          </span>
+          <span className="eyebrow hidden sm:inline">AI Engineer Guides</span>
         </div>
       </header>
 
-      <main className="mx-auto max-w-3xl px-5 pb-24 pt-10 sm:px-6">
-        <p className="eyebrow">Career guide · India · 2026</p>
-        <h1 className="mt-3 text-4xl leading-[1.1] sm:text-5xl">
-          Top 10 AI Learning Courses in India to Become an AI Engineer (2026) — Skills, Roadmap,
-          Projects, Fees and Career Outcomes Compared
-        </h1>
-
-        <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
-          <span>38 min read</span>
-          <span aria-hidden>·</span>
-          <span>Last updated: [INSERT DATE]</span>
-        </div>
-        <p className="mt-3 text-sm text-muted-foreground">
-          This guide is published by LogicMojo; the ranking methodology and scoring criteria are
-          stated openly below.
-        </p>
-
-        <img
-          src={heroImage}
-          alt="Layered diagram of the AI Engineer skill stack taught by the best AI courses in India to become an AI Engineer"
-          width={1600}
-          height={900}
-          className="mt-7 w-full rounded-lg border border-border shadow-editorial"
+      <div className="relative overflow-hidden mesh-bg">
+        <div aria-hidden className="pointer-events-none absolute inset-0 grid-lines opacity-40" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-24 top-10 h-64 w-64 rounded-full bg-accent/20 blur-3xl float-slow"
         />
+        <div className="relative mx-auto max-w-3xl px-5 pb-4 pt-14 sm:px-6">
+          <Reveal>
+            <p className="eyebrow inline-flex items-center gap-2 rounded-full border border-accent/30 bg-card/70 px-3 py-1 backdrop-blur">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              Career guide · India · 2026
+            </p>
+            <h1 className="mt-5 text-4xl leading-[1.08] sm:text-6xl">
+              <span className="gradient-text">Top 10 AI Learning Courses in India</span> to Become an
+              AI Engineer (2026) — Skills, Roadmap, Projects, Fees and Career Outcomes Compared
+            </h1>
+            <div className="mt-5 h-1 w-40 rounded-full shimmer-line" />
+          </Reveal>
+
+          <Reveal delay={80}>
+            <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
+              <span>38 min read</span>
+              <span aria-hidden>·</span>
+              <span>Last updated: [INSERT DATE]</span>
+              <span aria-hidden>·</span>
+              <span>10 courses · 6 comparison tables · 34 FAQs</span>
+            </div>
+            <p className="mt-3 text-sm text-muted-foreground">
+              This guide is published by LogicMojo; the ranking methodology and scoring criteria are
+              stated openly below.
+            </p>
+          </Reveal>
+
+          <Reveal delay={140} className="mt-8 grid gap-3 sm:grid-cols-4">
+            <StatCard value="10" label="Courses ranked" />
+            <StatCard value="7" label="Skill layers" hint="Python → deployment" />
+            <StatCard value="12" label="Month roadmap" />
+            <StatCard value="6" label="Scoring pillars" hint="Weighted, stated openly" />
+          </Reveal>
+
+          <Reveal delay={200}>
+            <img
+              src={heroImage}
+              alt="Layered diagram of the AI Engineer skill stack taught by the best AI courses in India to become an AI Engineer"
+              width={1600}
+              height={900}
+              className="mt-8 w-full rounded-2xl border border-accent/20 shadow-lift"
+            />
+          </Reveal>
+        </div>
+      </div>
+
+      <main className="mx-auto max-w-3xl px-5 pb-24 pt-4 sm:px-6">
+
 
         <Callout label="Quick Answer">
           <p>
