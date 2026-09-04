@@ -10,33 +10,44 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AiCoursesInIndiaToBecomeAnAiEngineerRouteImport } from './routes/ai-courses-in-india-to-become-an-ai-engineer'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AiCoursesInIndiaToBecomeAnAiEngineerRoute =
+  AiCoursesInIndiaToBecomeAnAiEngineerRouteImport.update({
+    id: '/ai-courses-in-india-to-become-an-ai-engineer',
+    path: '/ai-courses-in-india-to-become-an-ai-engineer',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ai-courses-in-india-to-become-an-ai-engineer': typeof AiCoursesInIndiaToBecomeAnAiEngineerRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ai-courses-in-india-to-become-an-ai-engineer': typeof AiCoursesInIndiaToBecomeAnAiEngineerRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ai-courses-in-india-to-become-an-ai-engineer': typeof AiCoursesInIndiaToBecomeAnAiEngineerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/ai-courses-in-india-to-become-an-ai-engineer'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/ai-courses-in-india-to-become-an-ai-engineer'
+  id: '__root__' | '/' | '/ai-courses-in-india-to-become-an-ai-engineer'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AiCoursesInIndiaToBecomeAnAiEngineerRoute: typeof AiCoursesInIndiaToBecomeAnAiEngineerRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +59,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ai-courses-in-india-to-become-an-ai-engineer': {
+      id: '/ai-courses-in-india-to-become-an-ai-engineer'
+      path: '/ai-courses-in-india-to-become-an-ai-engineer'
+      fullPath: '/ai-courses-in-india-to-become-an-ai-engineer'
+      preLoaderRoute: typeof AiCoursesInIndiaToBecomeAnAiEngineerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AiCoursesInIndiaToBecomeAnAiEngineerRoute:
+    AiCoursesInIndiaToBecomeAnAiEngineerRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
