@@ -46,7 +46,7 @@ import { Faq } from "@/components/article/Faq";
 
 const TITLE = "Top 10 AI Courses in India to Become an AI Engineer (2026)";
 const DESCRIPTION =
-  "Ranked and reviewed: the 10 best AI courses in India to become an AI Engineer in 2026 — skill stack, 12-month roadmap, projects, fees, salaries and interview prep.";
+  "Compared: the 10 best AI courses in India to become an AI Engineer in 2026 — skills, roadmap, GenAI/RAG/agents depth, projects, fees, interviews and salaries.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -56,10 +56,13 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "article" },
+      { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: Article,
+
 });
 
 const toc: { id: string; label: string }[] = [
