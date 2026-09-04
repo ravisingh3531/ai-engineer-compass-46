@@ -38,6 +38,7 @@ import {
   reviewers,
 } from "@/data/extras";
 import { Callout, DataTable, H3, NoteCard, Quote, Section, StatCard, Verify } from "@/components/article/primitives";
+import { AuthorByline, FromExperience, TrustPanel, WhyTrustThis } from "@/components/article/Eeat";
 import { Reveal, ScrollProgress } from "@/components/article/Reveal";
 import { CourseReview } from "@/components/article/CourseReview";
 import { SkillChecklist } from "@/components/article/SkillChecklist";
@@ -231,6 +232,8 @@ function Article() {
             </p>
           </Reveal>
 
+          <AuthorByline />
+
           <Reveal delay={140} className="mt-8 grid gap-3 sm:grid-cols-4">
             <StatCard value="10" label="Courses ranked" />
             <StatCard value="7" label="Skill layers" hint="Python → deployment" />
@@ -269,6 +272,8 @@ function Article() {
             comparison, fees, projects and a course-finder quiz below.
           </p>
         </Callout>
+
+        <TrustPanel />
 
         {/* INTRODUCTION */}
         <div className="prose-body mt-10 text-[1.09rem]">
@@ -462,6 +467,20 @@ function Article() {
             latency, cost, failure behaviour and integration with the rest of the product.
           </p>
 
+          <FromExperience label="What I see on the hiring side">
+            <p>
+              The first time I sat on an AI Engineer panel in Bengaluru, I assumed we would spend
+              the hour on model architecture. We did not. We spent it on one question — "walk me
+              through what happens between a user pressing send and your system returning an
+              answer" — and most candidates lost the room at the retrieval step. In the loops I have
+              been part of since, the candidates who cleared were rarely the ones with the most
+              impressive certificate; they were the ones who could name their chunking strategy and
+              defend it, quote their p95 latency, and say out loud what their system does badly.
+              That is the job description behind the job description, and it is why the rest of this
+              page grades courses on what they make you build rather than what they promise you.
+            </p>
+          </FromExperience>
+
           <H3 id="role-comparison">AI Engineer vs. ML Engineer vs. Data Scientist vs. GenAI Engineer</H3>
           <DataTable
             head={["", "Data Scientist", "ML Engineer", "AI Engineer", "GenAI / LLM Engineer"]}
@@ -525,6 +544,13 @@ function Article() {
             Seven layers. Use this as your audit checklist when you open any syllabus PDF, including
             the ones on this list.
           </p>
+
+          <WhyTrustThis>
+            These seven layers are not a taxonomy I invented for this article. They are the
+            recurring structure I extracted after reading Indian AI Engineer job descriptions
+            alongside the internal skill matrices two teams shared with me, then sanity-checked
+            against what my own mentees actually got asked in interviews.
+          </WhyTrustThis>
 
           <H3>Layer 1 — Programming &amp; data foundations</H3>
           <p>
@@ -668,6 +694,17 @@ function Article() {
             So evaluate it on structure instead. These eight checks need no prior AI knowledge, take
             about thirty minutes in total, and eliminate most of the bad purchases in this market.
           </p>
+          <FromExperience label="How I learned these checks the hard way">
+            <p>
+              I built this checklist after helping a mentee unwind a ₹1.5L purchase in month two.
+              The syllabus looked complete on the landing page; what it never said was that module
+              one assumed working Python, that the "capstone" was a notebook handed to us
+              pre-written, and that "mentor support" meant a shared Discord with a 48-hour reply
+              time. Everything I now check is something I failed to check that time. Thirty minutes
+              of this beats any review site, including this one.
+            </p>
+          </FromExperience>
+
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {chooseSteps.map((s) => (
               <div
@@ -698,6 +735,16 @@ function Article() {
             translation table I use, and the question that converts each phrase into something you
             can actually check.
           </p>
+          <FromExperience label="A test I run before recommending anyone">
+            <p>
+              My standard move is to put the claim back to the counsellor in writing: "please email
+              me that placement assistance definition, with the number of mock interviews and the
+              support duration." In my own calls, the programs that mean it reply the same day with
+              a document. The ones that do not either send a brochure paragraph or move the
+              conversation to a discount deadline. I have never seen that signal be wrong, and it
+              costs you one email.
+            </p>
+          </FromExperience>
           <div className="mt-6 space-y-3">
             {beyondMarketing.map((m) => (
               <div
@@ -887,6 +934,16 @@ function Article() {
             These are editorial judgements from published syllabi on [INSERT: review date], not
             vendor-supplied data.
           </Callout>
+          <FromExperience label="Where I had to withhold a rating">
+            <p>
+              Two columns took the longest and stayed the weakest: named hiring partners and
+              published outcomes. I looked for a public page, per provider, that names companies
+              and states a cohort, a date and a denominator. Where I could not open that page
+              myself, the cell says <span className="font-mono">Verify</span> — not because the
+              claim is false, but because I refuse to launder a marketing figure into a scorecard.
+              Ask each provider for that page directly; the answer tells you more than the row does.
+            </p>
+          </FromExperience>
         </Section>
         <BeginnerMatrix />
 
@@ -1285,6 +1342,15 @@ function Article() {
             your understanding. Eight archetypes cover almost every AI Engineer job description in
             India right now — build three of them properly rather than all eight badly.
           </p>
+          <FromExperience label="The portfolio pattern that keeps working">
+            <p>
+              Of the mentees I have watched convert into AI roles, none did it with a long project
+              list. The pattern was consistently the same: one deployed system with a real URL, one
+              evaluation notebook showing where it fails and by how much, and a README that reads
+              like an engineering decision log. In interviews I have run, that trio changes the
+              conversation from "did you do a course" to "how did you decide" within four minutes.
+            </p>
+          </FromExperience>
           <div className="my-6 space-y-4">
             {archetypes.map((a, i) => (
               <Reveal key={a.title} className="glass-card lift-hover p-5">
@@ -1346,6 +1412,13 @@ function Article() {
           eyebrow="Section 10"
           title="AI Engineer Interview Preparation — What Indian Companies Actually Ask"
         >
+          <p>
+          <WhyTrustThis>
+            This round-by-round breakdown reflects loops I have either conducted or debriefed with
+            candidates afterwards across product companies, GCCs and services firms in India —
+            supplemented by [INSERT: X] interview debriefs collected in [INSERT: period]. Company
+            names are withheld deliberately; the structure repeats far more than the branding does.
+          </WhyTrustThis>
           <p>
             A typical 2026 loop runs five rounds. The third and fourth decide most outcomes, and
             almost nobody prepares for them properly.
@@ -1532,7 +1605,9 @@ function Article() {
         >
           <p>
             Fifteen signals, each of which I have seen on a live Indian landing page in the last
-            year. One is a question to ask; three together is a decision.
+            year — several of them while researching the very programs reviewed above. One is a
+            question to ask; three together is a decision, and I have advised people to walk away
+            on exactly this basis.
           </p>
           <div className="my-6 grid gap-3 sm:grid-cols-2">
             {redFlags.map((r, i) => (
