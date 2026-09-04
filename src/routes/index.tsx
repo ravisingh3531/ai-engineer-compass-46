@@ -644,7 +644,66 @@ function Article() {
           </Quote>
         </Section>
 
+        {/* HOW TO CHOOSE */}
+        <Section
+          id="how-to-choose"
+          eyebrow="Section 3b"
+          title="How to Choose the Right AI Engineering Course as a Beginner (India, 2026)"
+        >
+          <p>
+            A beginner cannot evaluate a syllabus on content — you do not yet know what is missing.
+            So evaluate it on structure instead. These eight checks need no prior AI knowledge, take
+            about thirty minutes in total, and eliminate most of the bad purchases in this market.
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            {chooseSteps.map((s) => (
+              <div
+                key={s.step}
+                className="lift-hover rounded-2xl border border-border bg-gradient-to-br from-card to-secondary p-5 shadow-editorial"
+              >
+                <p className="font-display text-lg text-accent">{s.step}</p>
+                <p className="mt-2 text-sm text-muted-foreground">{s.body}</p>
+              </div>
+            ))}
+          </div>
+          <Callout label="The one-sentence version" tone="accent">
+            Choose the course that starts where you are, teaches foundations before GenAI, makes you
+            design and deploy your own systems, has a human who reads your code, and states its job
+            support in writing — then verify all five before the EMI starts.
+          </Callout>
+        </Section>
+
+        {/* BEYOND MARKETING */}
+        <Section
+          id="beyond-marketing"
+          eyebrow="Section 3c"
+          title="What to Look For Beyond the Marketing"
+        >
+          <p>
+            Indian AI EdTech marketing has settled into a stable vocabulary. None of these phrases
+            is necessarily dishonest; all of them are unfalsifiable as written. Here is the
+            translation table I use, and the question that converts each phrase into something you
+            can actually check.
+          </p>
+          <div className="mt-6 space-y-3">
+            {beyondMarketing.map((m) => (
+              <div
+                key={m.marketing}
+                className="lift-hover grid gap-2 rounded-2xl border border-border bg-card p-5 shadow-editorial md:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] md:gap-6"
+              >
+                <p className="font-display text-lg text-primary">{m.marketing}</p>
+                <p className="text-sm text-muted-foreground">{m.reality}</p>
+              </div>
+            ))}
+          </div>
+          <Quote>
+            The claims that matter are the ones a provider will repeat in writing. Everything else
+            is atmosphere.
+          </Quote>
+        </Section>
+
         {/* SECTION 6 */}
+
         <Section id="at-a-glance" eyebrow="Section 4" title="Top 10 AI Courses in India to Become an AI Engineer (2026) — At a Glance">
           <p>
             The ranking weights curriculum depth and delivery quality heaviest, because between them
