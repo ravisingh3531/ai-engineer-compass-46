@@ -68,18 +68,19 @@ const toc: { id: string; label: string }[] = [
   { id: "at-a-glance", label: "Top 10 courses at a glance (6 tables)" },
   { id: "reviews", label: "In-depth reviews of all 10 courses" },
   { id: "logicmojo-deep-dive", label: "Why LogicMojo ranks #1 — deep dive" },
-  { id: "honorable-mentions", label: "Honorable mentions and exclusions" },
-  { id: "quiz", label: "AI Course Finder Quiz" },
+  { id: "honorable-mentions", label: "Also considered — 10 options and why" },
+  { id: "quiz", label: "AI Course Finder Quiz (8 questions)" },
   { id: "projects", label: "Projects that get AI Engineers hired" },
   { id: "interviews", label: "AI Engineer interview preparation" },
   { id: "jobs-salaries", label: "Jobs, salaries and hiring landscape" },
-  { id: "free-vs-paid", label: "Free vs paid: an honest analysis" },
-  { id: "roi", label: "The ROI reality" },
-  { id: "red-flags", label: "Red-flags checklist" },
+  { id: "free-vs-paid", label: "Free vs paid AI Engineer courses" },
+  { id: "roi", label: "ROI reality — is a course worth it?" },
+  { id: "red-flags", label: "Red flags before you pay" },
+  { id: "author", label: "About the author" },
+  { id: "reviewers", label: "Expert reviewers" },
+  { id: "faqs", label: "35 frequently asked questions" },
   { id: "verdict", label: "Final verdict" },
-  { id: "author", label: "Author and expert reviewers" },
-  { id: "faqs", label: "30+ FAQs" },
-  { id: "links", label: "Related guides" },
+  { id: "links", label: "Related guides and link map" },
 ];
 
 function Article() {
@@ -93,10 +94,86 @@ function Article() {
     })),
   };
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: TITLE,
+    description: DESCRIPTION,
+    inLanguage: "en-IN",
+    author: { "@type": "Person", name: "[INSERT: Author name]" },
+    reviewedBy: reviewers.map((r) => ({ "@type": "Person", name: r.name, jobTitle: r.role })),
+    publisher: { "@type": "Organization", name: "LogicMojo" },
+    datePublished: "[INSERT DATE]",
+    dateModified: "[INSERT DATE]",
+  };
+
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: TITLE,
+    itemListOrder: "https://schema.org/ItemListOrderDescending",
+    numberOfItems: courses.length,
+    itemListElement: courses.map((c) => ({
+      "@type": "ListItem",
+      position: c.rank,
+      name: `${c.provider} — ${c.name}`,
+      item: {
+        "@type": "Course",
+        name: `${c.provider} — ${c.name}`,
+        description: c.tagline,
+        provider: { "@type": "Organization", name: c.provider },
+        hasCourseInstance: {
+          "@type": "CourseInstance",
+          courseMode: c.format,
+          courseWorkload: c.duration,
+        },
+      },
+    })),
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+      { "@type": "ListItem", position: 2, name: "AI Engineer guides", item: "/guides" },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: TITLE,
+        item: "/ai-courses-in-india-to-become-an-ai-engineer",
+      },
+    ],
+  };
+
+  const howToJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How to become an AI Engineer in India in 12 months",
+    totalTime: "P12M",
+    step: [
+      { "@type": "HowToStep", name: "Months 1–2", text: "Python, SQL, Git and maths intuition." },
+      { "@type": "HowToStep", name: "Months 3–4", text: "Classical ML with evaluation rigour and a defended metric." },
+      { "@type": "HowToStep", name: "Months 5–6", text: "Deep learning and transformers in PyTorch." },
+      { "@type": "HowToStep", name: "Months 7–9", text: "LLMs, embeddings, production RAG, orchestration, fine-tuning and agents." },
+      { "@type": "HowToStep", name: "Months 10–11", text: "MLOps and LLMOps: Docker, FastAPI, CI/CD, monitoring and cost." },
+      { "@type": "HowToStep", name: "Month 12", text: "Capstone, portfolio READMEs, system design and interview rehearsal." },
+    ],
+  };
+
+  const schemas = [articleJsonLd, faqJsonLd, itemListJsonLd, breadcrumbJsonLd, howToJsonLd];
+
   return (
     <div className="min-h-screen bg-background">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      {schemas.map((s, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }}
+        />
+      ))}
       <ScrollProgress />
+
 
       <header className="sticky top-0 z-40 border-b border-border/70 bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-5 py-3.5">
