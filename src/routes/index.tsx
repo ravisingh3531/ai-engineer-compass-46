@@ -1087,7 +1087,8 @@ function Article() {
         </Section>
       </main>
 
-      <footer className="border-t border-border bg-ink text-ink-foreground">
+      <footer className="relative overflow-hidden border-t border-border bg-gradient-to-br from-ink via-primary to-ink text-ink-foreground">
+        <div aria-hidden className="pointer-events-none absolute inset-0 grid-lines opacity-20" />
         <div className="mx-auto max-w-5xl px-5 py-10">
           <p className="font-display text-2xl">LogicMojo</p>
           <p className="mt-2 max-w-xl text-sm opacity-80">
