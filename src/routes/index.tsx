@@ -32,6 +32,7 @@ import {
   salesCallRules,
   internalLinks,
   externalLinks,
+  reviewers,
 } from "@/data/extras";
 import { Callout, DataTable, H3, NoteCard, Quote, Section, StatCard, Verify } from "@/components/article/primitives";
 import { Reveal, ScrollProgress } from "@/components/article/Reveal";
