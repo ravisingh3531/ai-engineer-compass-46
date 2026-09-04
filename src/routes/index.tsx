@@ -13,7 +13,8 @@ import {
   teachingScorecard,
 } from "@/data/tables";
 import { faqs } from "@/data/faqs";
-import { Callout, DataTable, H3, Quote, Section } from "@/components/article/primitives";
+import { Callout, DataTable, H3, Quote, Section, StatCard } from "@/components/article/primitives";
+import { Reveal, ScrollProgress } from "@/components/article/Reveal";
 import { CourseReview } from "@/components/article/CourseReview";
 import { SkillChecklist } from "@/components/article/SkillChecklist";
 import { CourseFinderQuiz } from "@/components/article/CourseFinderQuiz";
@@ -72,38 +73,74 @@ function Article() {
   return (
     <div className="min-h-screen bg-background">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <ScrollProgress />
 
-      <header className="border-b border-border bg-ink text-ink-foreground">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-5 py-4">
-          <span className="font-display text-xl">LogicMojo</span>
-          <span className="eyebrow opacity-70">AI Engineer Guides</span>
+      <header className="sticky top-0 z-40 border-b border-border/70 bg-background/80 backdrop-blur-md">
+        <div className="mx-auto flex max-w-5xl items-center justify-between px-5 py-3.5">
+          <span className="flex items-center gap-2 font-display text-xl text-primary">
+            <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent text-sm font-semibold text-primary-foreground">
+              L
+            </span>
+            LogicMojo
+          </span>
+          <span className="eyebrow hidden sm:inline">AI Engineer Guides</span>
         </div>
       </header>
 
-      <main className="mx-auto max-w-3xl px-5 pb-24 pt-10 sm:px-6">
-        <p className="eyebrow">Career guide · India · 2026</p>
-        <h1 className="mt-3 text-4xl leading-[1.1] sm:text-5xl">
-          Top 10 AI Learning Courses in India to Become an AI Engineer (2026) — Skills, Roadmap,
-          Projects, Fees and Career Outcomes Compared
-        </h1>
-
-        <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
-          <span>38 min read</span>
-          <span aria-hidden>·</span>
-          <span>Last updated: [INSERT DATE]</span>
-        </div>
-        <p className="mt-3 text-sm text-muted-foreground">
-          This guide is published by LogicMojo; the ranking methodology and scoring criteria are
-          stated openly below.
-        </p>
-
-        <img
-          src={heroImage}
-          alt="Layered diagram of the AI Engineer skill stack taught by the best AI courses in India to become an AI Engineer"
-          width={1600}
-          height={900}
-          className="mt-7 w-full rounded-lg border border-border shadow-editorial"
+      <div className="relative overflow-hidden mesh-bg">
+        <div aria-hidden className="pointer-events-none absolute inset-0 grid-lines opacity-40" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-24 top-10 h-64 w-64 rounded-full bg-accent/20 blur-3xl float-slow"
         />
+        <div className="relative mx-auto max-w-3xl px-5 pb-4 pt-14 sm:px-6">
+          <Reveal>
+            <p className="eyebrow inline-flex items-center gap-2 rounded-full border border-accent/30 bg-card/70 px-3 py-1 backdrop-blur">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              Career guide · India · 2026
+            </p>
+            <h1 className="mt-5 text-4xl leading-[1.08] sm:text-6xl">
+              <span className="gradient-text">Top 10 AI Learning Courses in India</span> to Become an
+              AI Engineer (2026) — Skills, Roadmap, Projects, Fees and Career Outcomes Compared
+            </h1>
+            <div className="mt-5 h-1 w-40 rounded-full shimmer-line" />
+          </Reveal>
+
+          <Reveal delay={80}>
+            <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
+              <span>38 min read</span>
+              <span aria-hidden>·</span>
+              <span>Last updated: [INSERT DATE]</span>
+              <span aria-hidden>·</span>
+              <span>10 courses · 6 comparison tables · 34 FAQs</span>
+            </div>
+            <p className="mt-3 text-sm text-muted-foreground">
+              This guide is published by LogicMojo; the ranking methodology and scoring criteria are
+              stated openly below.
+            </p>
+          </Reveal>
+
+          <Reveal delay={140} className="mt-8 grid gap-3 sm:grid-cols-4">
+            <StatCard value="10" label="Courses ranked" />
+            <StatCard value="7" label="Skill layers" hint="Python → deployment" />
+            <StatCard value="12" label="Month roadmap" />
+            <StatCard value="6" label="Scoring pillars" hint="Weighted, stated openly" />
+          </Reveal>
+
+          <Reveal delay={200}>
+            <img
+              src={heroImage}
+              alt="Layered diagram of the AI Engineer skill stack taught by the best AI courses in India to become an AI Engineer"
+              width={1600}
+              height={900}
+              className="mt-8 w-full rounded-2xl border border-accent/20 shadow-lift"
+            />
+          </Reveal>
+        </div>
+      </div>
+
+      <main className="mx-auto max-w-3xl px-5 pb-24 pt-4 sm:px-6">
+
 
         <Callout label="Quick Answer">
           <p>
@@ -274,22 +311,30 @@ function Article() {
         />
 
         {/* TOC */}
-        <nav
-          id="toc"
-          aria-label="Table of contents"
-          className="mt-12 rounded-lg border border-border bg-surface p-5"
+        <Reveal
+          as="section"
+          className="mt-12 rounded-2xl border border-accent/20 bg-gradient-to-br from-secondary via-card to-highlight p-6 shadow-editorial"
         >
-          <p className="eyebrow">On this page</p>
-          <ol className="mt-3 grid gap-x-8 gap-y-1.5 text-sm sm:grid-cols-2">
-            {toc.map((t, i) => (
-              <li key={t.id}>
-                <a className="underline decoration-accent underline-offset-4" href={`#${t.id}`}>
-                  {String(i + 1).padStart(2, "0")}. {t.label}
-                </a>
-              </li>
-            ))}
-          </ol>
-        </nav>
+          <nav id="toc" aria-label="Table of contents" className="scroll-mt-24">
+            <p className="eyebrow">On this page</p>
+            <ol className="mt-4 grid gap-3 text-sm sm:grid-cols-2">
+              {toc.map((t, i) => (
+                <li key={t.id}>
+                  <a
+                    className="lift-hover flex items-start gap-3 rounded-xl border border-border/70 bg-card/80 px-3 py-2.5 no-underline"
+                    href={`#${t.id}`}
+                  >
+                    <span className="font-mono text-xs text-accent">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="font-medium">{t.label}</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        </Reveal>
+
 
         {/* SECTION 3 */}
         <Section id="what-ai-engineers-do" eyebrow="Section 1" title="What an AI Engineer Actually Does in India (2026)">
@@ -975,13 +1020,13 @@ function Article() {
           <div className="mt-6 flex flex-wrap gap-3">
             <a
               href="https://logicmojo.com/artificial-intelligence-machine-learning-course"
-              className="rounded-md bg-ink px-5 py-2.5 text-sm font-semibold text-ink-foreground no-underline"
+              className="rounded-xl bg-gradient-to-r from-primary to-accent px-5 py-2.5 text-sm font-semibold text-primary-foreground no-underline shadow-editorial transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-glow"
             >
               Explore the LogicMojo AI &amp; ML Course
             </a>
             <a
               href="#quiz"
-              className="rounded-md border border-border bg-card px-5 py-2.5 text-sm font-semibold no-underline"
+              className="lift-hover rounded-xl border border-accent/35 bg-card px-5 py-2.5 text-sm font-semibold text-primary no-underline"
             >
               Take the course finder quiz
             </a>
@@ -990,7 +1035,8 @@ function Article() {
 
         {/* AUTHOR */}
         <Section id="author" eyebrow="Section 16" title="About the Author and Expert Reviewers">
-          <div className="rounded-lg border border-border bg-card p-5 shadow-editorial">
+          <div className="glass-card lift-hover p-5">
+
             <p className="eyebrow">Author</p>
             <p className="mt-1 text-lg font-semibold">[INSERT: Author name], AI curriculum analyst</p>
             <p className="mt-2 text-sm text-muted-foreground">
@@ -1041,8 +1087,9 @@ function Article() {
         </Section>
       </main>
 
-      <footer className="border-t border-border bg-ink text-ink-foreground">
-        <div className="mx-auto max-w-5xl px-5 py-10">
+      <footer className="relative overflow-hidden border-t border-border bg-gradient-to-br from-ink via-primary to-ink text-ink-foreground">
+        <div aria-hidden className="pointer-events-none absolute inset-0 grid-lines opacity-20" />
+        <div className="relative mx-auto max-w-5xl px-5 py-10">
           <p className="font-display text-2xl">LogicMojo</p>
           <p className="mt-2 max-w-xl text-sm opacity-80">
             Live, instructor-led AI &amp; Machine Learning training for working professionals in
